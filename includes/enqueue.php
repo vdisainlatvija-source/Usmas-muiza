@@ -159,9 +159,11 @@ function vdisain_scripts_styles() {
 
 	// Blog page
 	if (is_home()) {
-		$blog_css_uri = '/assets/css/blog.min.css';
-		$blog_css_time = filemtime(TEMPLATEPATH . $blog_css_uri);
-		wp_enqueue_style('blog-style', $template_uri . $blog_css_uri, [], $blog_css_time);
+		$blog_css_path = TEMPLATEPATH . '/assets/css/blog.min.css';
+		if ( file_exists( $blog_css_path ) ) {
+			$blog_css_time = filemtime( $blog_css_path );
+			wp_enqueue_style('blog-style', $template_uri . '/assets/css/blog.min.css', [], $blog_css_time);
+		}
 	}
 
 	// Single post
@@ -192,20 +194,26 @@ function vdisain_scripts_styles() {
 
 	// Projekts archive
 	if (is_post_type_archive('project')) {
-		$archive_css_uri = '/assets/css/archive-projekts.min.css';
-		$archive_css_time = filemtime(TEMPLATEPATH . $archive_css_uri);
-		wp_enqueue_style('archive-projekts-style', $template_uri . $archive_css_uri, [], $archive_css_time);
+		$archive_css_path = TEMPLATEPATH . '/assets/css/archive-projekts.min.css';
+		if ( file_exists( $archive_css_path ) ) {
+			$archive_css_time = filemtime( $archive_css_path );
+			wp_enqueue_style('archive-projekts-style', $template_uri . '/assets/css/archive-projekts.min.css', [], $archive_css_time);
+		}
 
-		$archive_js_uri = '/assets/js/archive-projekts.js';
-		$archive_js_time = filemtime(TEMPLATEPATH . $archive_js_uri);
-		wp_enqueue_script('archive-projekts-scripts', $template_uri . $archive_js_uri, ['jquery'], $archive_js_time, true);
+		$archive_js_path = TEMPLATEPATH . '/assets/js/archive-projekts.js';
+		if ( file_exists( $archive_js_path ) ) {
+			$archive_js_time = filemtime( $archive_js_path );
+			wp_enqueue_script('archive-projekts-scripts', $template_uri . '/assets/js/archive-projekts.js', ['jquery'], $archive_js_time, true);
+		}
 	}
 
 	// Single project
 	if (is_singular('project')) {
-		$single_css_uri = '/assets/css/single-projekts.min.css';
-		$single_css_time = filemtime(TEMPLATEPATH . $single_css_uri);
-		wp_enqueue_style('single-projekts-style', $template_uri . $single_css_uri, [], $single_css_time);
+		$single_projekts_css_path = TEMPLATEPATH . '/assets/css/single-projekts.min.css';
+		if ( file_exists( $single_projekts_css_path ) ) {
+			$single_projekts_css_time = filemtime( $single_projekts_css_path );
+			wp_enqueue_style('single-projekts-style', $template_uri . '/assets/css/single-projekts.min.css', [], $single_projekts_css_time);
+		}
 	}
 }
 add_action( 'wp_enqueue_scripts', 'vdisain_scripts_styles' );

@@ -20,7 +20,7 @@ if ( ! empty( $blog_hero ) ) {
 	$out = '';
 	$out .= '<section class="section-hero">';
 		$out .= '<div class="container">';
-			$out .= $blog_hero;
+			$out .= wp_kses_post( $blog_hero );
 		$out .= '</div>';
 	$out .= '</section>';
 	echo $out;

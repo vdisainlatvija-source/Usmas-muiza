@@ -9,28 +9,13 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
 
-// Allow SVG support
-add_filter( 'wp_check_filetype_and_ext', function($data, $file, $filename, $mimes) {
-	global $wp_version;
-	if ( $wp_version !== '4.7.1' ) {
-		return $data;
+// Allow SVG support - restricted to administrators only
+add_filter( 'upload_mimes', function( $mimes ) {
+	if ( current_user_can( 'manage_options' ) ) {
+		$mimes['svg'] = 'image/svg+xml';
 	}
-
-	$filetype = wp_check_filetype( $filename, $mimes );
-
-	return [
-		'ext'             => $filetype['ext'],
-		'type'            => $filetype['type'],
-		'proper_filename' => $data['proper_filename']
-	];
-
-}, 10, 4 );
-
-function cc_mime_types( $mimes ){
-	$mimes['svg'] = 'image/svg+xml';
 	return $mimes;
-}
-add_filter( 'upload_mimes', 'cc_mime_types' );
+} );
 
 /**
  * Get template part with arguments and return the output as a string.

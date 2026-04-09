@@ -5,8 +5,6 @@
     const burgerBtn = header.querySelector('.burger-btn');
     const closeBtn = header.querySelector('.close-btn');
     const mobileSidebar = header.querySelector('.mobile-sidebar');
-    const langSwitcher = header.querySelector('.lang-switcher');
-    const langToggle = header.querySelector('.lang-toggle');
     const themeColor = document.getElementById('themeColor');
 
     let ticking = false;
@@ -45,20 +43,6 @@
         document.body.style.overflow = '';
     }
 
-    // Language dropdown
-    if (langToggle && langSwitcher) {
-        langToggle.addEventListener('click', function(e) {
-            e.stopPropagation();
-            langSwitcher.classList.toggle('open');
-        });
-
-        document.addEventListener('click', function(e) {
-            if (!langSwitcher.contains(e.target)) {
-                langSwitcher.classList.remove('open');
-            }
-        });
-    }
-
     // Events
     window.addEventListener('scroll', onScroll, { passive: true });
     handleScroll();
@@ -75,7 +59,6 @@
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             if (header.classList.contains('menu-open')) closeMobileMenu();
-            if (langSwitcher) langSwitcher.classList.remove('open');
         }
     });
 })();

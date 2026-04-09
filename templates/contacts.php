@@ -24,7 +24,7 @@ if ( have_rows( 'sections', $sections_post_id ) ) {
 }
 
 // Contact Form Section
-$form_id = get_field( 'contact_form_id', 'option' );
+$form_id = get_field( 'popup_form_id', 'option' );
 
 if ( $form_id && function_exists( 'gravity_form' ) ) {
 	$out = '';
