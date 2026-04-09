@@ -1,0 +1,117 @@
+@use '../mixins' as *;
+
+.section-about {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, $blue-start 0%, $blue-end 61.21%);
+
+    .container {
+        padding-top: 120px;
+        padding-bottom: 120px;
+
+        @include tablet {
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+
+        @include phone {
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+    }
+
+    // Header — label left, title right
+    .about-header {
+        display: flex;
+        gap: 40px;
+        margin-bottom: 80px;
+
+        @include tablet {
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        @include phone {
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+    }
+
+    .about-label {
+        @include label;
+        flex-shrink: 0;
+        padding-top: 8px;
+        width: 30%;
+
+        @include phone {
+            width: 100%;
+            padding-top: 0;
+        }
+    }
+
+    h2 {
+        color: white;
+        flex: 1;
+    }
+
+    // Bottom — vision label + text + CTA
+    .about-bottom {
+        display: flex;
+        align-items: flex-start;
+        gap: 40px;
+
+        @include tablet {
+            flex-wrap: wrap;
+        }
+
+        @include phone {
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
+
+    .about-vision-label {
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: white;
+        flex-shrink: 0;
+        width: 30%;
+
+        @include phone {
+            width: 100%;
+        }
+    }
+
+    .about-vision-content {
+        flex: 1;
+        max-width: 429px;
+
+        p {
+            color: white;
+        }
+
+        @include tablet {
+            margin-left: -6rem;
+        }
+
+        @include phone {
+            max-width: 100%;
+        }
+    }
+
+    .button-entrance-box {
+        flex-shrink: 0;
+        margin-left: auto;
+
+        @include tablet {
+            align-self: flex-end;
+        }
+        @include phone {
+            margin-left: 0;
+            align-self: flex-end;
+        }
+    }
+}

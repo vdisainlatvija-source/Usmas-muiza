@@ -1,0 +1,29 @@
+/**
+ * TinyMCE Editor Styles
+ * Matches front-end styling for .box component
+ */
+
+.mce-content-body .box {
+    border-left: 3px solid rgba(0, 0, 0, 0.2);
+    margin-bottom: 8px;
+}
+
+.mce-content-body .box:last-child {
+    margin-bottom: 0;
+}
+
+.mce-content-body .box h3,
+.mce-content-body .box .box-title {
+    font-size: 34px;
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 18px;
+}
+
+.mce-content-body .box p {
+    margin-bottom: 0;
+}
+
+.mce-content-body .box p + p {
+    margin-top: 1em;
+}

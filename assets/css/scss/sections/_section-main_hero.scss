@@ -1,0 +1,181 @@
+@use '../mixins' as *;
+
+.section-main_hero {
+    position: relative;
+    overflow: hidden;
+    background: $blue-end;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    .hero-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+
+            @include tablet {
+                object-position: 67% center;
+            }
+            @include phone {
+                object-position: 67% center;
+            }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    // Decorative vector overlay
+    .hero-vector {
+        position: absolute;
+        bottom: -240px;
+        left: -200px;
+        z-index: 1;
+        pointer-events: none;
+        animation: heroVectorSlide 1.5s ease-out 0.3s forwards;
+        opacity: 0;
+
+        img {
+            display: block;
+            width: auto;
+            height: auto;
+        }
+
+        @include phone {
+            animation: heroVectorSlidePhone 1.5s ease-out 0.3s forwards;
+        }
+    }
+
+    @keyframes heroVectorSlide {
+        from {
+            opacity: 0;
+            transform: translateX(-100px);
+        }
+        to {
+            opacity: 0.85;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes heroVectorSlidePhone {
+        from {
+            opacity: 0;
+            transform: translateX(-100px);
+        }
+        to {
+            opacity: 0.5;
+            transform: translateX(0);
+        }
+    }
+
+    .container {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-top: auto;
+        padding-bottom: 100px;
+
+        @include tablet {
+            padding-bottom: 60px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        @include phone {
+            padding-bottom: 40px;
+            gap: 30px;
+            flex-direction: column;
+        }
+    }
+
+    // Left column — label + title
+    .hero-left {
+        max-width: 50%;
+
+        @include tablet {
+            max-width: 60%;
+        }
+
+        @include phone {
+            max-width: 100%;
+        }
+    }
+
+    .hero-label {
+        display: block;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.2;
+        text-transform: uppercase;
+        color: $accent;
+        margin-bottom: 12px;
+
+        @include phone {
+            font-size: 12px;
+        }
+    }
+
+    h1 {
+        color: white;
+        @include h1;
+    }
+
+    // Right column — description + CTA
+    .hero-right {
+        max-width: 314px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+
+        @include tablet {
+            flex-direction: row;
+            max-width: 100%;
+            justify-content: space-between;
+        }
+
+        @include phone {
+            max-width: 100%;
+            gap: 30px;
+        }
+
+        p {
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.4;
+
+            @include tablet {
+                width: 50%;
+            }
+
+            @include phone {
+                width: 80%;
+                margin-top: -0.5rem;
+            }
+        }
+        .button-entrance-box {
+            align-self: flex-end;
+            margin: -1rem 0 -2rem;
+
+            @include phone {
+            margin: -2rem 0 0;
+        }
+        }
+    }
+
+}

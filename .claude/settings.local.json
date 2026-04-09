@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__figma__get_design_context",
+      "Bash(done)",
+      "Bash(npx sass:*)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); [print\\(f''''  layout: {l[\"\"name\"\"]} \\({l[\"\"key\"\"]}\\)''''\\) for f in d.get\\(''''fields'''',[]\\) for l in f.get\\(''''layouts'''',{}\\).values\\(\\)]\")",
+      "mcp__figma__get_screenshot",
+      "Bash(ls /Users/renarskondratjevs/.claude/settings*)",
+      "Bash(python3 -m json.tool)",
+      "Bash(xxd)",
+      "Bash(sass:*)",
+      "Read(//data01/virt130474/domeenid/www.vdizains.com/arpitrade/wp-content/plugins/gravityforms/**)",
+      "Bash(curl -s https://www.arpitrade.com/)",
+      "Bash(php -r \":*)",
+      "Bash(grep -r \"gform_wrapper\\\\|gform-theme\" /data01/virt130474/domeenid/www.vdizains.com/arpitrade/wp-content/plugins/gravityforms/includes/fields/ --include=*.php -l)",
+      "Bash(grep -r \"contact-us\\\\|#contact\\\\|-active\\\\|scrollTo\\\\|smooth\" /data01/virt130474/domeenid/www.vdizains.com/arpitrade/wp-content/themes/headofsales/template-parts/*.php)",
+      "Bash(grep:*)"
+    ]
+  }
+}

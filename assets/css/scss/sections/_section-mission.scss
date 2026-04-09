@@ -1,0 +1,109 @@
+@use '../mixins' as *;
+
+.section-mission {
+    position: relative;
+    overflow: hidden;
+    min-height: 722px;
+    display: flex;
+    align-items: flex-end;
+
+    @include tablet {
+        min-height: 500px;
+    }
+
+    @include phone {
+        min-height: 400px;
+    }
+
+    .mission-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .mission-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba($dark, 0.4);
+        }
+    }
+
+    // Decorative vector overlay
+    .mission-vector {
+        position: absolute;
+        z-index: 1;
+        bottom: -240px;
+        left: -200px;
+        pointer-events: none;
+        animation: missionVectorSlide 1.5s ease-out 0.3s forwards;
+        opacity: 0;
+
+        img {
+            display: block;
+            width: auto;
+            height: auto;
+        }
+
+        @include phone {
+            animation: missionVectorSlidePhone 1.5s ease-out 0.3s forwards;
+        }
+    }
+
+    @keyframes missionVectorSlide {
+        from { opacity: 0; transform: translateX(-100px); }
+        to { opacity: 0.65; transform: translateX(0); }
+    }
+
+    @keyframes missionVectorSlidePhone {
+        from { opacity: 0; transform: translateX(-100px); }
+        to { opacity: 0.5; transform: translateX(0); }
+    }
+
+    .container {
+        position: relative;
+        z-index: 2;
+        padding-top: 60px;
+        padding-bottom: 80px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        @include phone {
+            align-self: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            gap: 20px;
+        }
+    }
+
+    .mission-label {
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: white;
+        line-height: 1.2;
+
+        @include phone {
+            font-size: 12px;
+            text-align: center;
+        }
+    }
+
+    p {
+        @include h4;
+        color: white;
+        max-width: 740px;
+        font-weight: 600;
+        line-height: 1.4;
+    }
+
+    @include phone {
+        text-align: center;
+    }
+}

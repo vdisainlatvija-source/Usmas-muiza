@@ -1,0 +1,27 @@
+<?php
+/**
+ * The template for displaying the header
+ *
+ * This is the template that displays all of the <head> section, opens the <body> tag and adds the site's header.
+ *
+ * @package headofsales
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+?>
+<!doctype html>
+<html <?php language_attributes(); ?>>
+<head>
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<?php $viewport_content = apply_filters( 'headofsales_viewport_content', 'width=device-width, initial-scale=1, viewport-fit=cover' ); ?>
+	<meta name="viewport" content="<?php echo esc_attr( $viewport_content ); ?>">
+	<meta name="theme-color" content="#C8C5B5" id="themeColor">
+    <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
+	<?php wp_head(); ?>
+</head>
+<body <?php body_class(); ?>>
+
+<?php
+get_template_part( 'template-parts/header' );?>
