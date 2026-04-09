@@ -16,16 +16,16 @@ $thumbnail = get_the_post_thumbnail( $post_id, 'large' );
 $tags      = get_the_tags( $post_id );
 
 $out = '';
-$out .= '<a href="' . esc_url( $permalink ) . '" class="postcard-default">';
+$out .= '<a href="' . esc_url( $permalink ) . '" class="component-postcard_default">';
 	if ( $thumbnail ) {
-		$out .= '<div class="postcard-default__image">' . $thumbnail . '</div>';
+		$out .= '<div class="postcard-image">' . $thumbnail . '</div>';
 	}
-	$out .= '<div class="postcard-default__content">';
-		$out .= '<h3 class="postcard-default__title">' . esc_html( $title ) . '</h3>';
+	$out .= '<div class="postcard-content">';
+		$out .= '<h3 class="postcard-title">' . esc_html( $title ) . '</h3>';
 		if ( ! empty( $tags ) && ! is_wp_error( $tags ) ) {
-			$out .= '<div class="postcard-default__tags">';
+			$out .= '<div class="postcard-tags">';
 			foreach ( $tags as $tag ) {
-				$out .= '<span class="postcard-default__tag">' . esc_html( $tag->name ) . '</span>';
+				$out .= '<span class="tag">' . esc_html( $tag->name ) . '</span>';
 			}
 			$out .= '</div>';
 		}
