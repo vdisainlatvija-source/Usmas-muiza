@@ -19,7 +19,7 @@ if ( have_rows( 'sections', $sections_post_id ) ) {
 	while ( have_rows( 'sections', $sections_post_id ) ) {
 		the_row();
 		$layout = get_row_layout();
-		$template_path = 'template-parts/sections/section-' . str_replace( '_', '_', $layout );
+		$template_path = 'template-parts/sections/section-' . $layout;
 		get_template_part( $template_path );
 	}
 }

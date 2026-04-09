@@ -27,7 +27,7 @@ if ( have_rows( 'sections', $sections_post_id ) ) {
 				echo '<section class="section-featured_image" style="background-image: url(' . esc_url( $featured_image ) . ');"></section>';
 			}
 		} else {
-			$template_path = 'template-parts/sections/section-' . str_replace('_', '_', $layout);
+			$template_path = 'template-parts/sections/section-' . $layout;
 			get_template_part( $template_path );
 		}
 	}

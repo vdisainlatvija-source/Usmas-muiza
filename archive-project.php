@@ -39,7 +39,8 @@ $out .= '<main id="projektsArchive">';
 					) );
 
 					$out .= '<nav class="filter-dropdown" data-filter="tag">';
-						$tag_label = $current_tag ? get_term_by( 'slug', $current_tag, 'post_tag' )->name : __( 'pakalpojumi', 'headofsales' );
+						$tag_term = $current_tag ? get_term_by( 'slug', $current_tag, 'post_tag' ) : false;
+						$tag_label = $tag_term ? $tag_term->name : __( 'pakalpojumi', 'headofsales' );
 						$out .= '<button class="filter-toggle' . ( $current_tag ? ' has-selection' : '' ) . '">';
 							$out .= '<span>' . esc_html( $tag_label ) . '</span>';
 						$out .= '</button>';
@@ -66,7 +67,8 @@ $out .= '<main id="projektsArchive">';
 					) );
 
 					$out .= '<nav class="filter-dropdown" data-filter="category">';
-						$cat_label = $current_category ? get_term_by( 'slug', $current_category, 'category' )->name : __( 'nozares', 'headofsales' );
+						$cat_term = $current_category ? get_term_by( 'slug', $current_category, 'category' ) : false;
+						$cat_label = $cat_term ? $cat_term->name : __( 'nozares', 'headofsales' );
 						$out .= '<button class="filter-toggle' . ( $current_category ? ' has-selection' : '' ) . '">';
 							$out .= '<span>' . esc_html( $cat_label ) . '</span>';
 						$out .= '</button>';

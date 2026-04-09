@@ -77,16 +77,16 @@ function vdisain_scripts_styles() {
 		true
 	);
 
-	// AOS - Animate On Scroll
+	// AOS - Animate On Scroll (vendored locally)
 	wp_enqueue_style(
 		'aos-css',
-		'https://unpkg.com/aos@2.3.1/dist/aos.css',
+		$template_uri . '/assets/addons/aos/aos.css',
 		[],
 		'2.3.1'
 	);
 	wp_enqueue_script(
 		'aos-js',
-		'https://unpkg.com/aos@2.3.1/dist/aos.js',
+		$template_uri . '/assets/addons/aos/aos.js',
 		[],
 		'2.3.1',
 		true
@@ -124,12 +124,7 @@ function vdisain_scripts_styles() {
 		true
 	);
 
-    wp_localize_script( 'theme-scripts', 'theme',
-        array(
-            'ajaxurl' => admin_url('admin-ajax.php'),
-            'nonce'   => wp_create_nonce('theme_nonce'),
-        )
-    );
+
 
 	// Homepage
 	if( is_page_template('templates/homepage.php') ){

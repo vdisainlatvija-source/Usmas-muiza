@@ -13,7 +13,6 @@ get_header();
 
 echo '<main id="homeMain">';
 
-$loadedBlocks        = [];
 $acf_flexible_source = null;
 
 if ( is_tax() || is_category() || is_tag() ) {
@@ -29,10 +28,6 @@ if ( $acf_flexible_source && have_rows( 'sections', $acf_flexible_source ) ) {
 	while ( have_rows( 'sections', $acf_flexible_source ) ) {
 		the_row();
 		$layout = get_row_layout();
-
-		if ( ! in_array( $layout, $loadedBlocks, true ) ) {
-			$loadedBlocks[] = $layout;
-		}
 
 		switch ( $layout ) {
 			case 'main_hero':
