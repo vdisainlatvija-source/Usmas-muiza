@@ -4,7 +4,7 @@
  *
  * Contains the body & html closing tags.
  *
- * @package headofsales
+ * @package usmasmuiza
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

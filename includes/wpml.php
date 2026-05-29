@@ -6,7 +6,7 @@
  * ACFML "advanced" mode doesn't write translated values to wp_postmeta,
  * so we sync them manually from WPML's icl_translate tables.
  *
- * @package headofsales
+ * @package usmasmuiza
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @param int|null $post_id    Post ID to check. Defaults to current post.
  * @return int The post ID to use for have_rows().
  */
-function headofsales_get_acf_post_id( $field_name = 'sections', $post_id = null ) {
+function usmasmuiza_get_acf_post_id( $field_name = 'sections', $post_id = null ) {
 	if ( ! $post_id ) {
 		$post_id = get_the_ID();
 	}
@@ -75,7 +75,7 @@ function headofsales_get_acf_post_id( $field_name = 'sections', $post_id = null 
 	}
 
 	// Step 2: Get translated values from WPML ATE and overwrite
-	$translations = headofsales_get_wpml_translations( $post_id, $field_name );
+	$translations = usmasmuiza_get_wpml_translations( $post_id, $field_name );
 
 	foreach ( $translations as $meta_key => $translated_value ) {
 		update_post_meta( $post_id, $meta_key, $translated_value );
@@ -100,7 +100,7 @@ function headofsales_get_acf_post_id( $field_name = 'sections', $post_id = null 
  * @param string $field_name         The flexible content field name to filter by.
  * @return array Associative array of meta_key => translated_value.
  */
-function headofsales_get_wpml_translations( $translated_post_id, $field_name = 'sections' ) {
+function usmasmuiza_get_wpml_translations( $translated_post_id, $field_name = 'sections' ) {
 	global $wpdb;
 
 	$prefix = $wpdb->prefix;
@@ -213,7 +213,7 @@ function headofsales_get_wpml_translations( $translated_post_id, $field_name = '
  * Clear ACF WPML sync flags when a translation is updated.
  * Hooked to WPML's translation save action.
  */
-function headofsales_clear_acf_wpml_sync( $new_post_id ) {
+function usmasmuiza_clear_acf_wpml_sync( $new_post_id ) {
 	global $wpdb;
 
 	$wpdb->query( $wpdb->prepare(
@@ -223,4 +223,4 @@ function headofsales_clear_acf_wpml_sync( $new_post_id ) {
 		$new_post_id
 	) );
 }
-add_action( 'wpml_pro_translation_completed', 'headofsales_clear_acf_wpml_sync', 10, 1 );
+add_action( 'wpml_pro_translation_completed', 'usmasmuiza_clear_acf_wpml_sync', 10, 1 );

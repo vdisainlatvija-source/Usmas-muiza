@@ -2,7 +2,7 @@
 /**
  * Template part for displaying a message when no posts are found
  *
- * @package headofsales
+ * @package usmasmuiza
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -12,8 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 $out = '';
 $out .= '<section class="no-results">';
 	$out .= '<div class="container">';
-		$out .= '<h1>' . esc_html__( 'Nekas nav atrasts', 'headofsales' ) . '</h1>';
-		$out .= '<p>' . esc_html__( 'Diemžēl nekas neatbilst jūsu meklēšanas kritērijiem.', 'headofsales' ) . '</p>';
+		$out .= '<h1>' . esc_html__( 'Nothing found', 'usmasmuiza' ) . '</h1>';
+		$out .= '<p>' . esc_html__( 'Sorry, nothing matched your search criteria.', 'usmasmuiza' ) . '</p>';
 	$out .= '</div>';
 $out .= '</section>';
 

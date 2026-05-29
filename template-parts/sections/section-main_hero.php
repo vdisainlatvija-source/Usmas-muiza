@@ -1,75 +1,39 @@
 <?php
 /**
- * Section: Main Hero
+ * Section: Main Hero (homepage)
  *
- * ACF Flexible Content Layout: main_hero
+ * Flexible content layout "main_hero" (field group: Page - Homepage).
+ * Full-bleed background image with a dark overlay, a centered logo and a button.
+ * Rendered inside the have_rows( 'sections' ) loop in templates/homepage.php.
+ *
+ * @package usmasmuiza
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+	exit; // Exit if accessed directly.
 }
 
-$label           = get_sub_field( 'label' );
-$title           = get_sub_field( 'title' );
-$description     = get_sub_field( 'description' );
-$button          = get_sub_field( 'button' );
-$background_image = get_sub_field( 'background_image' );
-$vector_overlay  = get_sub_field( 'vector_overlay' );
+$background = get_sub_field( 'background_image' );
+$logo       = get_sub_field( 'logo' );
+$button     = get_sub_field( 'button' );
 
-$out = '';
+$has_bg = is_array( $background ) && ! empty( $background['url'] );
+$style  = $has_bg ? ' style="background-image:url(' . esc_url( $background['url'] ) . ');"' : '';
+?>
+<section class="section-main_hero<?php echo $has_bg ? ' has-bg' : ''; ?>"<?php echo $style; ?>>
 
-$out .= '<section class="section-main_hero">';
+	<div class="hero-inner">
 
-	// Background image
-	if ( $background_image && is_array( $background_image ) ) {
-		$out .= '<div class="hero-bg">';
-			$out .= '<img src="' . esc_url( $background_image['url'] ) . '" alt="' . esc_attr( $background_image['alt'] ) . '">';
-			$out .= '<div class="hero-overlay"></div>';
-		$out .= '</div>';
-	}
+		<?php if ( is_array( $logo ) && ! empty( $logo['url'] ) ) : ?>
+			<img class="hero-logo" src="<?php echo esc_url( $logo['url'] ); ?>" alt="<?php echo esc_attr( ! empty( $logo['alt'] ) ? $logo['alt'] : get_bloginfo( 'name' ) ); ?>" loading="eager">
+		<?php endif; ?>
 
-	// Decorative vector overlay
-	if ( $vector_overlay && is_array( $vector_overlay ) ) {
-		$out .= '<div class="hero-vector">';
-			$out .= '<img src="' . esc_url( $vector_overlay['url'] ) . '" alt="">';
-		$out .= '</div>';
-	}
+		<?php if ( $button && ! empty( $button['url'] ) ) : ?>
+			<a class="hero-button" href="<?php echo esc_url( $button['url'] ); ?>"<?php echo ! empty( $button['target'] ) ? ' target="' . esc_attr( $button['target'] ) . '"' : ''; ?>>
+				<?php echo esc_html( ! empty( $button['title'] ) ? $button['title'] : __( 'Lasīt vairāk', 'usmasmuiza' ) ); ?>
+			</a>
+		<?php endif; ?>
 
-	$out .= '<div class="container">';
+	</div>
 
-		// Left column
-		$out .= '<div class="hero-left">';
-
-			if ( $label ) {
-				$out .= '<span class="hero-label" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">' . esc_html( $label ) . '</span>';
-			}
-
-			if ( $title ) {
-				$out .= '<h1 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">' . nl2br( esc_html( $title ) ) . '</h1>';
-			}
-
-		$out .= '</div>';
-
-		// Right column
-		$out .= '<div class="hero-right">';
-
-			if ( $description ) {
-				$out .= '<p data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">' . esc_html( $description ) . '</p>';
-			}
-
-			if ( $button ) {
-				$btn_url   = is_array( $button ) ? $button['url'] : '#';
-				$btn_title = is_array( $button ) ? $button['title'] : $button;
-				$btn_target = ( is_array( $button ) && ! empty( $button['target'] ) ) ? ' target="' . esc_attr( $button['target'] ) . '"' : '';
-				$out .= '<div class="button-entrance-box" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="800">';
-				$out .= '<a href="' . esc_url( $btn_url ) . '" class="btn-round" data-popup="contact"' . $btn_target . '>' . esc_html( $btn_title ) . '</a>';
-				$out .= '</div>';
-			}
-
-		$out .= '</div>';
-
-	$out .= '</div>';
-
-$out .= '</section>';
-
-echo $out;
+</section>

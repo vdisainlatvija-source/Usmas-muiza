@@ -1,12 +1,19 @@
-// Colors
-$bg: #FFFFFF;
-$dark: #1E2233;
-$accent: #EF9B1F;
-$grey-text: #6B7186;
-$light-bg: #F4F4F4;
-$blue-start: #6274d0;
-$blue-light: #7a8ffa;
-$blue-end: #3C52C2;
+// Brand palette — Usmas muiža (Figma)
+$green:       #3B5541; // Tom Thumb — primary dark green
+$green-muted: #405149; // Nandor — secondary green
+$rust:        #984421; // Cumin — accent
+$olive:       #808368; // Flax Smoke
+$cream:       #FFF4CF; // Barley White
+$pampas:      #F2F0EE; // Pampas — light bg
+$ink:         #231F20; // Thunder — text
+$white:       #FFFFFF;
+
+// Semantic aliases (consumed by mixins / theme)
+$bg:        $white;
+$dark:      $ink;
+$accent:    $rust;
+$grey-text: $green-muted;
+$light-bg:  $pampas;
 
 // Breakpoints
 $tablet-min: 768px;
@@ -36,79 +43,86 @@ $pc-min: 1150px;
     }
 }
 
-@mixin inter {
-    & {
-        font-family: "Inter", sans-serif;
-    }
+// Font stacks
+@mixin primary {        // Quicksand — body, headings, links
+    & { font-family: "Quicksand", sans-serif; }
+}
+@mixin display {        // Waterfall — large script/display headings
+    & { font-family: "Waterfall", cursive; }
+}
+@mixin inter {          // Inter — form inputs & buttons only
+    & { font-family: "Inter", sans-serif; }
 }
 
+// Body — Quicksand 16/24 (Figma "Quicksand/Regular")
 @mixin bodyRegular {
     & {
         font-size: clamp(14px, 13.3px + 0.19vw, 16px);
         font-weight: 400;
-        line-height: 140%;
-        color: $grey-text;
+        line-height: 150%;
+        color: $dark;
+        @include primary;
     }
 }
 
-// Heading mixins — based on ARPI Trade Figma
-// clamp() scales smoothly from 375px to 1440px viewport
+// Heading mixins — clamp() scales smoothly from 375px to 1440px viewport
+// H1/H2: Waterfall display script · H3–H5: Quicksand
 @mixin h1 {
     & {
-        font-size: clamp(36px, 20.51px + 4.13vw, 80px);
+        font-size: clamp(72px, 40.0px + 8.53vw, 110px);
         font-weight: 400;
         line-height: 90%;
-        color: $bg;
+        color: $dark;
         margin: 0;
-        @include inter;
+        @include display;
     }
 }
 
-@mixin h2 {
+@mixin h2 {  // Figma "Heading 2" — Waterfall 100/90
     & {
-        font-size: clamp(32px, 20.73px + 3.01vw, 64px);
+        font-size: clamp(56px, 28.5px + 7.33vw, 100px);
         font-weight: 400;
         line-height: 90%;
         margin: 0;
         color: $dark;
-        @include inter;
+        @include display;
     }
 }
 
 @mixin h3 {
     & {
-        font-size: clamp(26px, 16.85px + 2.44vw, 52px);
-        font-weight: 400;
-        line-height: 90%;
-        margin: 0;
-        color: $dark;
-        @include inter;
-    }
-}
-
-@mixin h4 {
-    & {
-        font-size: clamp(18px, 16.59px + 0.38vw, 22px);
-        line-height: 140%;
+        font-size: clamp(24px, 16.85px + 1.91vw, 32px);
         font-weight: 600;
+        line-height: 120%;
         margin: 0;
         color: $dark;
-        @include inter;
+        @include primary;
     }
 }
 
-@mixin h5 {
+@mixin h4 {  // Figma "Heading 4" — Quicksand 18/28 bold
+    & {
+        font-size: clamp(16px, 15.29px + 0.19vw, 18px);
+        line-height: 155%;
+        font-weight: 700;
+        margin: 0;
+        color: $dark;
+        @include primary;
+    }
+}
+
+@mixin h5 {  // Figma "Heading 5" — Quicksand 16 semibold
     & {
         font-size: clamp(14px, 13.3px + 0.19vw, 16px);
         line-height: 140%;
-        font-weight: 500;
+        font-weight: 600;
         color: $dark;
         margin: 0;
-        @include inter;
+        @include primary;
     }
 }
 
-// Label text (uppercase small — orange accent labels in design)
+// Label text (uppercase small)
 @mixin label {
     & {
         font-size: clamp(12px, 10.59px + 0.38vw, 16px);
@@ -116,6 +130,27 @@ $pc-min: 1150px;
         font-weight: 600;
         text-transform: uppercase;
         color: $accent;
+    }
+}
+
+// Nav / inline link — Quicksand 14 semibold (Figma "Link")
+@mixin link {
+    & {
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 600;
+        @include primary;
+    }
+}
+
+// Button label — Inter bold (Figma "Button")
+@mixin button {
+    & {
+        font-size: 13px;
+        line-height: 1;
+        font-weight: 700;
+        text-transform: uppercase;
+        @include inter;
     }
 }
 

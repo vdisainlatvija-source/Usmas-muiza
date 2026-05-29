@@ -4,7 +4,7 @@
  *
  * This is the template that displays all of the <head> section, opens the <body> tag and adds the site's header.
  *
- * @package headofsales
+ * @package usmasmuiza
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -15,12 +15,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<?php $viewport_content = apply_filters( 'headofsales_viewport_content', 'width=device-width, initial-scale=1, viewport-fit=cover' ); ?>
+	<?php $viewport_content = apply_filters( 'usmasmuiza_viewport_content', 'width=device-width, initial-scale=1, viewport-fit=cover' ); ?>
 	<meta name="viewport" content="<?php echo esc_attr( $viewport_content ); ?>">
-	<meta name="theme-color" content="#C8C5B5" id="themeColor">
-    <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
-	<?php wp_head(); ?>
+	<meta name="theme-color" content="#ffffff" id="themeColor">
+    <?php wp_head(); ?>
 </head>
+
 <body <?php body_class(); ?>>
 
 <?php

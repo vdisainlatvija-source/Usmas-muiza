@@ -100,7 +100,7 @@
             "name": "footer_cta_label",
             "aria-label": "",
             "type": "text",
-            "instructions": "e.g. Bridging Markets, Driving Sales",
+            "instructions": "Short uppercase label above the CTA title",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -122,7 +122,7 @@
             "name": "footer_cta_title",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "e.g. Ready to Expand Your Business?",
+            "instructions": "Main CTA heading",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -184,7 +184,7 @@
             "name": "footer_email_text",
             "aria-label": "",
             "type": "wysiwyg",
-            "instructions": "e.g. For more information, please email: info@email.com",
+            "instructions": "Footer email block (WYSIWYG)",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -458,7 +458,7 @@
                 "id": ""
             },
             "wpml_cf_preferences": 2,
-            "default_value": "Bridging Markets, Driving Sales",
+            "default_value": "",
             "maxlength": "",
             "allow_in_bindings": 0,
             "placeholder": "",
@@ -480,7 +480,7 @@
                 "id": ""
             },
             "wpml_cf_preferences": 2,
-            "default_value": "Ready to Expand Your Business?",
+            "default_value": "",
             "maxlength": "",
             "allow_in_bindings": 0,
             "placeholder": "",
@@ -502,7 +502,7 @@
                 "id": ""
             },
             "wpml_cf_preferences": 2,
-            "default_value": "Let ARPI Trade help you successfully grow in the Polish and Baltic markets.",
+            "default_value": "",
             "maxlength": "",
             "allow_in_bindings": 0,
             "placeholder": "",
@@ -524,7 +524,7 @@
                 "id": ""
             },
             "wpml_cf_preferences": 2,
-            "default_value": "Contact Us",
+            "default_value": "",
             "maxlength": "",
             "allow_in_bindings": 0,
             "placeholder": "",
@@ -669,5 +669,5 @@
     "show_in_rest": 0,
     "display_title": "",
     "acfml_field_group_mode": "advanced",
-    "modified": 1774511282
+    "modified": 1775740704
 }

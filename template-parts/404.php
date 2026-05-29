@@ -2,7 +2,7 @@
 /**
  * The template for displaying 404 pages (not found).
  *
- * @package headofsales
+ * @package usmasmuiza
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -20,13 +20,13 @@ $out .= '<main id="errorMain">';
 
             // Content
             $out .= '<header>';
-                $out .= '<h2>' . esc_html__('Page was not found', 'headofsales') . '</h2>';
-                $out .= '<p>' . esc_html__('We could not have found the page you were looking for', 'headofsales') . '</p>';
+                $out .= '<h2>' . esc_html__('Page was not found', 'usmasmuiza') . '</h2>';
+                $out .= '<p>' . esc_html__('We could not have found the page you were looking for', 'usmasmuiza') . '</p>';
             $out .= '</header>';
 
             // Button
             $out .= '<a href="' . esc_url(home_url('/')) . '" class="btn">';
-                $out .= '<span>' . esc_html__('Back to Homepage', 'headofsales') . '</span>';
+                $out .= '<span>' . esc_html__('Back to Homepage', 'usmasmuiza') . '</span>';
             $out .= '</a>';
 
         $out .= '</div>';

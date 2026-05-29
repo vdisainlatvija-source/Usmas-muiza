@@ -2,7 +2,7 @@
 /**
 * WP hooks
 *
-* @package headofsales
+* @package usmasmuiza
 */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -18,28 +18,28 @@ add_post_type_support( 'page', 'excerpt' );
  * Remove default Posts post type from admin
  */
 // Remove "Posts" from admin menu
-function headofsales_remove_posts_menu() {
+function usmasmuiza_remove_posts_menu() {
     remove_menu_page( 'edit.php' );
 }
-add_action( 'admin_menu', 'headofsales_remove_posts_menu' );
+add_action( 'admin_menu', 'usmasmuiza_remove_posts_menu' );
 
 // Remove "Posts" from admin bar "+ New" dropdown
-function headofsales_remove_posts_admin_bar() {
+function usmasmuiza_remove_posts_admin_bar() {
     global $wp_admin_bar;
     $wp_admin_bar->remove_node( 'new-post' );
 }
-add_action( 'wp_before_admin_bar_render', 'headofsales_remove_posts_admin_bar' );
+add_action( 'wp_before_admin_bar_render', 'usmasmuiza_remove_posts_admin_bar' );
 
 // Remove Posts-related dashboard widgets
-function headofsales_remove_posts_dashboard_widgets() {
+function usmasmuiza_remove_posts_dashboard_widgets() {
     remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
     remove_meta_box( 'dashboard_recent_drafts', 'dashboard', 'side' );
 }
-add_action( 'wp_dashboard_setup', 'headofsales_remove_posts_dashboard_widgets' );
+add_action( 'wp_dashboard_setup', 'usmasmuiza_remove_posts_dashboard_widgets' );
 
 // Add text to login
 function add_h1_to_login_form() {
-    echo '<h1>'.__('Logi sisse', 'headofsales').':</h1>';
+    echo '<h1>'.__('Login', 'usmasmuiza').':</h1>';
 }
 add_action('woocommerce_login_form_start', 'add_h1_to_login_form');
 
@@ -47,10 +47,11 @@ add_action('woocommerce_login_form_start', 'add_h1_to_login_form');
 function my_login_logo() { ?>
     <style type="text/css">
         #login h1 a, .login h1 a {
-            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/images/svg/logo-black.svg?v=<?php echo filemtime( get_stylesheet_directory() . '/assets/images/svg/logo-black.svg' ); ?>);
-            height:65px;
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/screenshot.png?v=<?php echo filemtime( get_stylesheet_directory() . '/screenshot.png' ); ?>);
+            height:240px;
             width:320px;
-            background-size: 320px 65px;
+            background-size: contain;
+            background-position: center;
             background-repeat: no-repeat;
             padding-bottom: 30px;
         }
@@ -64,7 +65,7 @@ function my_login_logo_url() {
 }
 add_filter( 'login_headerurl', 'my_login_logo_url' );
 function my_login_logo_url_title() {
-    return 'Palus';
+    return get_bloginfo( 'name' );
 }
 add_filter( 'login_headertext', 'my_login_logo_url_title' );
 
@@ -75,13 +76,13 @@ add_filter( 'login_headertext', 'my_login_logo_url_title' );
  */
 
 // Save ACF JSON files to theme folder when saving in dashboard
-function headofsales_acf_json_save_point( $path ) {
+function usmasmuiza_acf_json_save_point( $path ) {
     return get_stylesheet_directory() . '/acf-json';
 }
-add_filter( 'acf/settings/save_json', 'headofsales_acf_json_save_point' );
+add_filter( 'acf/settings/save_json', 'usmasmuiza_acf_json_save_point' );
 
 // Load ACF JSON files from theme folder
-function headofsales_acf_json_load_point( $paths ) {
+function usmasmuiza_acf_json_load_point( $paths ) {
     // Remove the original path
     unset( $paths[0] );
 
@@ -90,7 +91,7 @@ function headofsales_acf_json_load_point( $paths ) {
 
     return $paths;
 }
-add_filter( 'acf/settings/load_json', 'headofsales_acf_json_load_point' );
+add_filter( 'acf/settings/load_json', 'usmasmuiza_acf_json_load_point' );
 
 /**
  * Disable Gutenberg editor globally for all post types
@@ -101,24 +102,24 @@ add_filter( 'use_block_editor_for_post_type', '__return_false' );
 /**
  * Disable revisions for all post types
  */
-function headofsales_disable_revisions() {
+function usmasmuiza_disable_revisions() {
     foreach ( get_post_types( array(), 'names' ) as $post_type ) {
         remove_post_type_support( $post_type, 'revisions' );
     }
 }
-add_action( 'init', 'headofsales_disable_revisions' );
+add_action( 'init', 'usmasmuiza_disable_revisions' );
 
 /**
  * Disable comments and discussions globally
  */
 // Disable comments support for all post types
-function headofsales_disable_comments_support() {
+function usmasmuiza_disable_comments_support() {
     foreach ( get_post_types( array(), 'names' ) as $post_type ) {
         remove_post_type_support( $post_type, 'comments' );
         remove_post_type_support( $post_type, 'trackbacks' );
     }
 }
-add_action( 'init', 'headofsales_disable_comments_support' );
+add_action( 'init', 'usmasmuiza_disable_comments_support' );
 
 // Close comments on frontend
 add_filter( 'comments_open', '__return_false', 20, 2 );
@@ -128,38 +129,38 @@ add_filter( 'pings_open', '__return_false', 20, 2 );
 add_filter( 'comments_array', '__return_empty_array', 10, 2 );
 
 // Remove comments from admin menu
-function headofsales_remove_comments_admin_menu() {
+function usmasmuiza_remove_comments_admin_menu() {
     remove_menu_page( 'edit-comments.php' );
 }
-add_action( 'admin_menu', 'headofsales_remove_comments_admin_menu' );
+add_action( 'admin_menu', 'usmasmuiza_remove_comments_admin_menu' );
 
 // Remove comments from admin bar
-function headofsales_remove_comments_admin_bar() {
+function usmasmuiza_remove_comments_admin_bar() {
     global $wp_admin_bar;
     $wp_admin_bar->remove_menu( 'comments' );
 }
-add_action( 'wp_before_admin_bar_render', 'headofsales_remove_comments_admin_bar' );
+add_action( 'wp_before_admin_bar_render', 'usmasmuiza_remove_comments_admin_bar' );
 
 // Redirect comments page to dashboard
-function headofsales_redirect_comments_page() {
+function usmasmuiza_redirect_comments_page() {
     global $pagenow;
     if ( $pagenow === 'edit-comments.php' ) {
         wp_safe_redirect( admin_url() );
         exit;
     }
 }
-add_action( 'admin_init', 'headofsales_redirect_comments_page' );
+add_action( 'admin_init', 'usmasmuiza_redirect_comments_page' );
 
 // Remove comments metabox from dashboard
-function headofsales_remove_dashboard_comments_metabox() {
+function usmasmuiza_remove_dashboard_comments_metabox() {
     remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'normal' );
 }
-add_action( 'admin_init', 'headofsales_remove_dashboard_comments_metabox' );
+add_action( 'admin_init', 'usmasmuiza_remove_dashboard_comments_metabox' );
 
 /**
  * ACF Field for Category - Hide from archive filter
  */
-function headofsales_acf_category_fields() {
+function usmasmuiza_acf_category_fields() {
     if ( ! function_exists( 'acf_add_local_field_group' ) ) {
         return;
     }
@@ -188,14 +189,14 @@ function headofsales_acf_category_fields() {
         ),
     ) );
 }
-add_action( 'acf/init', 'headofsales_acf_category_fields' );
+add_action( 'acf/init', 'usmasmuiza_acf_category_fields' );
 
 /**
  * Gravity Forms - Replace submit input with button element and add info text
  */
-function headofsales_gform_submit_button( $button, $form ) {
+function usmasmuiza_gform_submit_button( $button, $form ) {
 	// Get the submit button text from the form settings or use default
-	$button_text = ! empty( $form['button']['text'] ) ? $form['button']['text'] : __( 'Sūtīt', 'headofsales' );
+	$button_text = ! empty( $form['button']['text'] ) ? $form['button']['text'] : __( 'Send', 'usmasmuiza' );
 
 	// Create custom button with arrow
 	$custom_button = '<button type="submit" class="gform_button button" id="gform_submit_button_' . $form['id'] . '">';
@@ -206,40 +207,38 @@ function headofsales_gform_submit_button( $button, $form ) {
 	// Add info text after the button
 	$info = '<div class="gform-info">';
 		$info .= '<i></i>';
-		$info .= '<p>' . __( 'This helps us prepare for the conversation.', 'headofsales' ) . '</p>';
+		$info .= '<p>' . __( 'This helps us prepare for the conversation.', 'usmasmuiza' ) . '</p>';
 	$info .= '</div>';
 
 	return $custom_button . $info;
 }
-add_filter( 'gform_submit_button', 'headofsales_gform_submit_button', 10, 2 );
+add_filter( 'gform_submit_button', 'usmasmuiza_gform_submit_button', 10, 2 );
 
 /**
  * Menu Item Hover SVG Elements
  * Adds decorative SVG hover effects under primary navigation links.
  * Configurable per menu item in Appearance > Menus.
+ *
+ * Register each SVG file (placed in /assets/images/svg/{slug}.svg)
+ * in the array below to expose it as a hover option.
  */
-function headofsales_get_hover_svgs() {
+function usmasmuiza_get_hover_svgs() {
 	return array(
-		''                  => __( 'None', 'headofsales' ),
-		'darbi-hover'       => 'Darbi',
-		'blogs-hover'       => 'Blogs',
-		'pakalpojumi-hover' => 'Pakalpojumi',
-		'sakt-sarunu-hover' => 'Sākt sarunu',
-		'studija-hover'     => 'Studija',
+		'' => __( 'None', 'usmasmuiza' ),
 	);
 }
 
 // Add hover SVG fields to each nav menu item (Appearance > Menus)
-function headofsales_menu_item_hover_svg_field( $item_id, $item, $depth, $args ) {
+function usmasmuiza_menu_item_hover_svg_field( $item_id, $item, $depth, $args ) {
 	$hover_svg  = get_post_meta( $item_id, '_menu_item_hover_svg', true );
 	$hover_bottom = get_post_meta( $item_id, '_menu_item_hover_bottom', true );
 	$hover_x    = get_post_meta( $item_id, '_menu_item_hover_x', true );
 	$hover_scale = get_post_meta( $item_id, '_menu_item_hover_scale', true );
-	$svgs = headofsales_get_hover_svgs();
+	$svgs = usmasmuiza_get_hover_svgs();
 	?>
 	<p class="field-hover-svg description description-wide">
 		<label for="edit-menu-item-hover-svg-<?php echo esc_attr( $item_id ); ?>">
-			<?php esc_html_e( 'Hover SVG Element', 'headofsales' ); ?>
+			<?php esc_html_e( 'Hover SVG Element', 'usmasmuiza' ); ?>
 			<select id="edit-menu-item-hover-svg-<?php echo esc_attr( $item_id ); ?>" name="menu-item-hover-svg[<?php echo esc_attr( $item_id ); ?>]" class="widefat">
 				<?php foreach ( $svgs as $value => $label ) : ?>
 					<option value="<?php echo esc_attr( $value ); ?>" <?php selected( $hover_svg, $value ); ?>><?php echo esc_html( $label ); ?></option>
@@ -248,7 +247,7 @@ function headofsales_menu_item_hover_svg_field( $item_id, $item, $depth, $args )
 		</label>
 	</p>
 	<p class="field-hover-svg-position description description-wide">
-		<label><?php esc_html_e( 'Hover SVG Position', 'headofsales' ); ?></label>
+		<label><?php esc_html_e( 'Hover SVG Position', 'usmasmuiza' ); ?></label>
 		<span style="display:flex;gap:8px;margin-top:4px;">
 			<label style="flex:1;">
 				<input type="number" name="menu-item-hover-bottom[<?php echo esc_attr( $item_id ); ?>]" value="<?php echo esc_attr( $hover_bottom ); ?>" placeholder="-10" style="width:100%;">
@@ -266,14 +265,14 @@ function headofsales_menu_item_hover_svg_field( $item_id, $item, $depth, $args )
 	</p>
 	<?php
 }
-add_action( 'wp_nav_menu_item_custom_fields', 'headofsales_menu_item_hover_svg_field', 10, 4 );
+add_action( 'wp_nav_menu_item_custom_fields', 'usmasmuiza_menu_item_hover_svg_field', 10, 4 );
 
 // Save hover SVG fields
-function headofsales_save_menu_item_hover_svg( $menu_id, $menu_item_db_id, $args ) {
+function usmasmuiza_save_menu_item_hover_svg( $menu_id, $menu_item_db_id, $args ) {
 	// Save SVG selection
 	if ( isset( $_POST['menu-item-hover-svg'][ $menu_item_db_id ] ) ) {
 		$value = sanitize_text_field( $_POST['menu-item-hover-svg'][ $menu_item_db_id ] );
-		$valid_svgs = array_keys( headofsales_get_hover_svgs() );
+		$valid_svgs = array_keys( usmasmuiza_get_hover_svgs() );
 		if ( in_array( $value, $valid_svgs, true ) ) {
 			update_post_meta( $menu_item_db_id, '_menu_item_hover_svg', $value );
 		}
@@ -295,13 +294,13 @@ function headofsales_save_menu_item_hover_svg( $menu_id, $menu_item_db_id, $args
 		}
 	}
 }
-add_action( 'wp_update_nav_menu_item', 'headofsales_save_menu_item_hover_svg', 10, 3 );
+add_action( 'wp_update_nav_menu_item', 'usmasmuiza_save_menu_item_hover_svg', 10, 3 );
 
 /**
  * Get the menu item ID that holds hover SVG settings.
  * Falls back to the default language menu item if current one has no settings.
  */
-function headofsales_get_hover_svg_source_id( $item_id ) {
+function usmasmuiza_get_hover_svg_source_id( $item_id ) {
 	$hover_svg = get_post_meta( $item_id, '_menu_item_hover_svg', true );
 
 	if ( ! empty( $hover_svg ) ) {
@@ -329,12 +328,12 @@ function headofsales_get_hover_svg_source_id( $item_id ) {
 }
 
 // Inject hover SVG into menu item output on the frontend
-function headofsales_inject_hover_svg( $item_output, $item, $depth, $args ) {
+function usmasmuiza_inject_hover_svg( $item_output, $item, $depth, $args ) {
 	if ( ! isset( $args->theme_location ) || $args->theme_location !== 'primary-menu' || $depth !== 0 ) {
 		return $item_output;
 	}
 
-	$source_id = headofsales_get_hover_svg_source_id( $item->ID );
+	$source_id = usmasmuiza_get_hover_svg_source_id( $item->ID );
 	$hover_svg = get_post_meta( $source_id, '_menu_item_hover_svg', true );
 
 	if ( empty( $hover_svg ) ) {
@@ -372,5 +371,4 @@ function headofsales_inject_hover_svg( $item_output, $item, $depth, $args ) {
 
 	return $item_output;
 }
-add_filter( 'walker_nav_menu_start_el', 'headofsales_inject_hover_svg', 10, 4 );
-
+add_filter( 'walker_nav_menu_start_el', 'usmasmuiza_inject_hover_svg', 10, 4 );

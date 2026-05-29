@@ -2,7 +2,7 @@
 /**
  * The template for displaying header.
  *
- * @package headofsales
+ * @package usmasmuiza
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -46,7 +46,7 @@ $out .= '<header id="mainHeader">';
         $out .= '</div>';
 
         // Mobile burger button
-        $out .= '<button class="burger-btn" aria-label="' . esc_attr__('Menu', 'headofsales') . '">';
+        $out .= '<button class="burger-btn" aria-label="' . esc_attr__('Menu', 'usmasmuiza') . '">';
             $out .= '<span></span>';
             $out .= '<span></span>';
             $out .= '<span></span>';
@@ -57,7 +57,7 @@ $out .= '<header id="mainHeader">';
     // Mobile Sidebar
     $out .= '<aside class="mobile-sidebar">';
 
-        $out .= '<button class="close-btn" aria-label="' . esc_attr__('Close', 'headofsales') . '">';
+        $out .= '<button class="close-btn" aria-label="' . esc_attr__('Close', 'usmasmuiza') . '">';
             $out .= '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
         $out .= '</button>';
 

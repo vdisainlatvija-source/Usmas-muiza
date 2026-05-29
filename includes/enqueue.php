@@ -2,7 +2,7 @@
 /**
 * WP Enqueue
 *
-* @package headofsales
+* @package usmasmuiza
 */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 function vdisain_theme_setup() {
 	add_image_size( 'hero', 1980, 700, true );
 
-	register_nav_menus( array( 'primary-menu'   => __( 'Primary', 'headofsales' ) ) );
+	register_nav_menus( array( 'primary-menu'   => __( 'Primary', 'usmasmuiza' ) ) );
 
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'automatic-feed-links' );
@@ -136,79 +136,6 @@ function vdisain_scripts_styles() {
 			[],
 			$home_css_time
 		);
-	}
-
-	// Services page
-	if (is_page_template('templates/services.php')) {
-		$services_css_uri = '/assets/css/services.min.css';
-		$services_css_time = filemtime(TEMPLATEPATH . $services_css_uri);
-		wp_enqueue_style('services-style', $template_uri . $services_css_uri, [], $services_css_time);
-	}
-
-	// About page
-	if (is_page_template('templates/about.php')) {
-		$about_css_uri = '/assets/css/about.min.css';
-		$about_css_time = filemtime(TEMPLATEPATH . $about_css_uri);
-		wp_enqueue_style('about-style', $template_uri . $about_css_uri, [], $about_css_time);
-	}
-
-	// Blog page
-	if (is_home()) {
-		$blog_css_path = TEMPLATEPATH . '/assets/css/blog.min.css';
-		if ( file_exists( $blog_css_path ) ) {
-			$blog_css_time = filemtime( $blog_css_path );
-			wp_enqueue_style('blog-style', $template_uri . '/assets/css/blog.min.css', [], $blog_css_time);
-		}
-	}
-
-	// Single post
-	if (is_singular('post')) {
-		$single_css_uri = '/assets/css/single.min.css';
-		$single_css_time = filemtime(TEMPLATEPATH . $single_css_uri);
-		wp_enqueue_style('single-style', $template_uri . $single_css_uri, [], $single_css_time);
-	}
-
-	// 404 page
-	if (is_404()) {
-		$error_css_uri = '/assets/css/error.min.css';
-		$error_css_time = filemtime(TEMPLATEPATH . $error_css_uri);
-		wp_enqueue_style(
-			'error-style',
-			$template_uri . $error_css_uri,
-			[],
-			$error_css_time
-		);
-	}
-
-	// Default page (page.php)
-	if (is_page() && !is_page_template()) {
-		$page_css_uri = '/assets/css/page.min.css';
-		$page_css_time = filemtime(TEMPLATEPATH . $page_css_uri);
-		wp_enqueue_style('page-style', $template_uri . $page_css_uri, [], $page_css_time);
-	}
-
-	// Projekts archive
-	if (is_post_type_archive('project')) {
-		$archive_css_path = TEMPLATEPATH . '/assets/css/archive-projekts.min.css';
-		if ( file_exists( $archive_css_path ) ) {
-			$archive_css_time = filemtime( $archive_css_path );
-			wp_enqueue_style('archive-projekts-style', $template_uri . '/assets/css/archive-projekts.min.css', [], $archive_css_time);
-		}
-
-		$archive_js_path = TEMPLATEPATH . '/assets/js/archive-projekts.js';
-		if ( file_exists( $archive_js_path ) ) {
-			$archive_js_time = filemtime( $archive_js_path );
-			wp_enqueue_script('archive-projekts-scripts', $template_uri . '/assets/js/archive-projekts.js', ['jquery'], $archive_js_time, true);
-		}
-	}
-
-	// Single project
-	if (is_singular('project')) {
-		$single_projekts_css_path = TEMPLATEPATH . '/assets/css/single-projekts.min.css';
-		if ( file_exists( $single_projekts_css_path ) ) {
-			$single_projekts_css_time = filemtime( $single_projekts_css_path );
-			wp_enqueue_style('single-projekts-style', $template_uri . '/assets/css/single-projekts.min.css', [], $single_projekts_css_time);
-		}
 	}
 }
 add_action( 'wp_enqueue_scripts', 'vdisain_scripts_styles' );

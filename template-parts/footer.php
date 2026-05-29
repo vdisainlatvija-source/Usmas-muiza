@@ -2,7 +2,7 @@
 /**
  * The template for displaying footer.
  *
- * @package headofsales
+ * @package usmasmuiza
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

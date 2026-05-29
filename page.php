@@ -2,7 +2,7 @@
 /**
  * Default Page Template
  *
- * @package headofsales
+ * @package usmasmuiza
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

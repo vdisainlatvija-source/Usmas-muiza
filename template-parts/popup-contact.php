@@ -2,7 +2,7 @@
 /**
  * Contact Popup
  *
- * @package headofsales
+ * @package usmasmuiza
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
