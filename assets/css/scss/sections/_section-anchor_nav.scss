@@ -1,0 +1,38 @@
+@use '../mixins' as *;
+
+// Anchor nav — a row of links that scroll to other sections on the page.
+.section-anchor-nav {
+    background: $white;
+    padding-inline: clamp(1.5rem, -0.08rem + 6.76vw, 6rem);
+
+    .anchor-nav__inner {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        height: 5rem;
+    }
+
+    .anchor-nav__link {
+        @include label;
+        @include transition;
+        @include underlineHover($rust);
+        @include boldHover;
+        color: $ink;
+        font-size: 1rem;
+
+        &:hover { color: $rust; }
+    }
+
+    // Phone: let the links flow & wrap compactly (centred), not a tall fixed row.
+    @include phone {
+        padding-inline: 1.25rem;
+
+        .anchor-nav__inner {
+            height: auto;
+            gap: 1.25rem 1.5rem;
+            padding-block: 1.25rem;
+        }
+    }
+}

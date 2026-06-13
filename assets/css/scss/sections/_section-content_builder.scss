@@ -1,0 +1,176 @@
+@use '../mixins' as *;
+
+// Content builder — configurable section (Title / Text / Gallery / Table /
+// Button) on a chosen background. Table rows can expand on click.
+.section-cb {
+
+    .cb-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: clamp(2rem, 1rem + 2vw, 3rem);
+    }
+
+    h2 { margin: 0; }
+
+    // ---------- Backgrounds ----------
+    &--white  { background: $white;  color: $ink; }
+    &--pampas { background: $pampas; color: $ink; }
+    &--cream  { background: $cream;  color: $ink; }
+    &--green  { background: $green;  color: $pampas; }
+    &--olive  { background: $olive;  color: $cream; }
+
+    // ---------- Text ----------
+    .cb-text {
+        max-width: 40rem; // ~640px
+        text-align: center;
+    }
+
+    // ---------- Gallery (square row) ----------
+    .cb-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        width: 100%;
+
+        &__item {
+            margin: 0;
+            flex: 0 0 auto;
+
+            a { display: block; cursor: zoom-in; }
+
+            img {
+                display: block;
+                width: 280px;
+                height: 280px;
+                max-width: 100%;
+                object-fit: cover;
+                border-radius: $radius-s;
+                @include transition;
+            }
+            a:hover img { transform: scale(1.03); }
+        }
+
+        @include phone {
+            &__item { flex: 1 1 100%; }
+            &__item img { width: 100%; height: auto; aspect-ratio: 1 / 1; }
+        }
+    }
+
+    // ---------- Table (line grid) ----------
+    .cb-table {
+        width: 100%;
+        max-width: 900px;
+
+        &__row {
+            // Border follows the section's text colour (set per background above).
+            border-top: 1px solid currentColor;
+        }
+
+        &__head {
+            display: flex;
+            align-items: center;
+            gap: clamp(1.5rem, 0.5rem + 2.5vw, 3.5rem); // tighter so col1 gets more room
+            width: 100%;
+            margin: 0;
+            padding: 1rem clamp(1rem, 0.3rem + 3vw, 4rem);
+            background: none;
+            border: none;
+            color: inherit;
+            font: inherit;
+            font-weight: 500;
+            text-align: left;
+        }
+
+        // Col1 grows to absorb the free space so its text stays on one line and
+        // only wraps when it genuinely runs out of room. Col2/col3 stay fixed and
+        // right-anchored, so they (and the toggle) still line up across rows.
+        &__c1 { flex: 1 1 auto; min-width: 0; }
+        &__c2 { flex: 0 0 auto; width: clamp(7rem, 20%, 12rem); }
+        &__c3 { flex: 0 0 auto; width: clamp(4rem, 10%, 7rem); }
+
+        &__toggle {
+            margin-left: auto; // pinned to the far right
+            font-size: 1.25rem;
+            line-height: 1;
+            @include transition;
+        }
+
+        // Collapsible panel (grid-rows 0fr → 1fr reveal).
+        &__panel {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.35s ease;
+        }
+
+        &__panel-inner {
+            min-height: 0; // lets the 0fr grid track collapse smoothly
+            overflow: hidden;
+            padding-inline: clamp(1rem, 0.3rem + 3vw, 4rem);
+            transition: padding-block 0.35s ease; // animate top + bottom in sync
+        }
+    }
+
+    // Col-1 heading label — gets a centre-out underline + rust + bold when open.
+    .cb-table__label {
+        display: inline-block;
+        @include underlineHover($rust);
+    }
+
+
+    .cb-table__head:has(.cb-table__c2, .cb-table__c3) .cb-table__toggle { margin-left: 0; }
+
+    .cb-table__row.is-expandable .cb-table__head { cursor: pointer; }
+    .cb-table__row.is-open .cb-table__toggle { transform: rotate(45deg); color: $rust; }
+    .cb-table__row.is-open .cb-table__panel { grid-template-rows: 1fr; }
+    .cb-table__row.is-open .cb-table__panel-inner { padding-top:0.5rem; padding-bottom:1.5rem; }
+    .cb-table__row.is-open .cb-table__label { color: $rust; font-weight: 700; }
+    .cb-table__row.is-open .cb-table__label::after { transform: scaleX(1); }
+
+    // Menu-style expandable list (label left, price right).
+    .cb-menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        &__item {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        &__price { white-space: nowrap; }
+    }
+
+    // ---------- Button ----------
+    .cb-btn {
+        display: flex;
+        justify-content: center;
+    }
+
+    // ---------- Phone: label on its own row, time + price + toggle on the next ----------
+    @include phone {
+        .cb-table__head {
+            flex-wrap: wrap;
+            gap: 0.5rem 1.5rem;
+            padding-inline: 0; // use the section's own inline padding
+        }
+
+        // Rows with a time/price: col1 takes the full first row; time, price and
+        // the toggle spread evenly across the second row (time left, price
+        // centre, "+" right).
+        .cb-table__head:has(.cb-table__c2, .cb-table__c3) {
+            justify-content: space-between;
+
+            .cb-table__c1 { flex: 0 0 100%; min-width: 0; }
+            .cb-table__c2,
+            .cb-table__c3 { flex: 0 0 auto; width: auto; }
+            .cb-table__toggle { margin-left: 0; }
+        }
+    }
+}

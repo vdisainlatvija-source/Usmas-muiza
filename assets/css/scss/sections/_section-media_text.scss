@@ -1,0 +1,138 @@
+@use '../mixins' as *;
+
+// Media + Text — two columns (text + image). The image side flips via the
+// .media--left / .media--right modifier so sections can alternate.
+.section-media-text {
+
+    &--white  { background: $white;  color: $ink; }
+    &--pampas { background: $pampas; color: $ink; }
+    &--cream  { background: $cream;  color: $ink; }
+
+    .mt-inner {
+        display: flex;
+        align-items: center;
+        gap: clamp(2rem, 1rem + 3vw, 4rem);
+    }
+
+    // Image on the left → reverse the row.
+    &.media--left .mt-inner { flex-direction: row-reverse; }
+
+    .mt-text {
+        flex: 1 1 0;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem; // 32px
+    }
+
+    .mt-heading {
+        @include h2;
+        margin: 0;
+    }
+
+    .mt-body { width: 100%; }
+
+    .mt-foot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem 1.5rem;
+    }
+
+    .mt-price {
+        margin: 0;
+        @include body;
+        font-size: 1.375rem; // 22px
+        font-weight: 600;
+        line-height: 1.3;
+        color: $green-muted;
+    }
+
+    .mt-note {
+        display: block;
+        font-size: 0.75rem;
+        font-weight: 400;
+        opacity: 0.7;
+    }
+
+    .mt-media {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+
+    // Image slider — no arrows, just pagination dots + swipe/drag.
+    .mt-slider {
+        position: relative;
+        border-radius: $radius-l;
+        overflow: hidden;
+
+        &__track {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            cursor: grab;
+            &::-webkit-scrollbar { display: none; }
+
+            &.is-dragging {
+                cursor: grabbing;
+                user-select: none;
+                scroll-snap-type: none;
+            }
+        }
+
+        &__slide {
+            flex: 0 0 100%;
+            margin: 0;
+            scroll-snap-align: start;
+
+            img {
+                display: block;
+                width: 100%;
+                aspect-ratio: 584 / 505;
+                object-fit: cover;
+            }
+        }
+
+        &__dots {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 2;
+        }
+
+        &__dot {
+            width: 8px;
+            height: 8px;
+            padding: 0;
+            border: none;
+            border-radius: 999px;
+            background: rgba($white, 0.6);
+            box-shadow: 0 0 4px rgba($ink, 0.25);
+            cursor: pointer;
+            @include transition;
+
+            &.is-active {
+                width: 22px;
+                background: $white;
+            }
+        }
+    }
+
+    // Tablet & below: stack with the image on top (column-reverse, since the
+    // text comes first in the markup).
+    @include tablet {
+        .mt-inner,
+        &.media--left .mt-inner { flex-direction: column-reverse; }
+
+        .mt-text { gap: 1.5rem; }
+        .mt-slider__slide img { aspect-ratio: 16 / 10; }
+    }
+}

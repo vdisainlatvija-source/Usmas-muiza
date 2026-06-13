@@ -1,0 +1,19 @@
+@use 'mixins' as *;
+@use 'form-styled'; // shared Gravity Forms styling (.gf-styled)
+
+// Inner content page sections (template: Page – Sections).
+// Add new section partials here as they are built.
+@use 'sections/section-hero';
+@use 'sections/section-anchor_nav';
+@use 'sections/section-under_hero';
+@use 'sections/section-rooms';
+@use 'sections/section-gallery';
+@use 'sections/section-offers';
+@use 'sections/section-content_builder';
+
+@use 'sections/section-media_text';
+@use 'sections/section-news';
+@use 'sections/section-contact';
+@use 'sections/section-map';
+@use 'sections/section-text_form';
+@use 'sections/section-reservation';

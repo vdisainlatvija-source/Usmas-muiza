@@ -1,0 +1,35 @@
+@use '../mixins' as *;
+
+// Reservation — heading + a shortcode (e.g. a booking-engine widget).
+.section-reservation {
+    text-align: center;
+    background: $white;
+
+    .reservation-title {
+        @include h2;
+        margin: 0 0 2rem;
+    }
+
+    .reservation-image {
+        max-width: 380px;
+        margin: -5.5rem auto 0;
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+    }
+
+    .reservation-embed {
+        // Let the embedded widget own its layout; just align it nicely.
+        text-align: left;
+
+        iframe {
+            display: block;
+            width: 100%;
+            border: 0;
+        }
+    }
+}

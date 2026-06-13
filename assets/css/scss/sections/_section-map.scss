@@ -1,0 +1,25 @@
+@use '../mixins' as *;
+
+// Map — heading + embedded Google Map.
+.section-map {
+    text-align: center;
+    background: $white;
+
+    .map-title {
+        @include h2;
+        margin: 0 0 2rem;
+    }
+
+    .map-embed {
+        border-radius: $radius-l;
+        overflow: hidden;
+        line-height: 0; // kill iframe inline-gap
+
+        iframe {
+            display: block;
+            width: 100%;
+            height: clamp(300px, 35vw, 450px);
+            border: 0;
+        }
+    }
+}

@@ -1,0 +1,124 @@
+@use 'mixins' as *;
+
+// Shared Gravity Forms styling — underline inputs, olive labels, rust submit.
+// Add the .gf-styled class to the wrapper around a [gravityform] shortcode.
+.gf-styled .gform_wrapper {
+    margin: 0;
+
+    // 2-column grid: fields are half by default; textareas, number fields and
+    // any field set to full-width in GF span the whole row.
+    .gform_fields {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1.5rem 1.25rem !important;
+    }
+    .gfield { grid-column: span 1 !important; } // half
+
+    .gfield--type-textarea,
+    .gfield--type-number,
+    .gfield--width-full,
+    .gfield--type-section,
+    .gfield--type-html { grid-column: 1 / -1 !important; } // full
+
+    @include phone {
+        .gform_fields { grid-template-columns: 1fr !important; }
+    }
+
+    // GF's orbital theme uses high-specificity / variable-driven styles,
+    // so the overrides below need !important to win.
+    .gfield_label {
+        @include body;
+        font-size: 1rem !important;
+        font-weight: 500 !important;
+        color: $olive !important;
+        margin: 0 0 2px !important;
+    }
+    .gfield_required { color: $olive !important; }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="url"],
+    select,
+    textarea {
+        @include body;
+        width: 100%;
+        background: transparent !important;
+        border: none !important;
+        border-bottom: 1px solid $green !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        padding: 0.35rem 0 !important;
+        font-size: 1rem;
+        line-height: 1.5 !important; // GF's orbital theme sets line-height:1 → clips descenders
+        color: $ink;
+
+        &::placeholder { color: $olive; }
+        &:focus {
+            outline: none !important;
+            border-bottom-color: $green-muted !important;
+            box-shadow: none !important;
+        }
+    }
+
+    select {
+        appearance: none;
+        -webkit-appearance: none;
+        cursor: pointer;
+    }
+
+    // "€" suffix on number fields (e.g. Summa) so users type digits only.
+    .gfield--type-number .ginput_container_number {
+        position: relative;
+
+        &::after {
+            content: "€";
+            position: absolute;
+            right: 0;
+            bottom: 0.35rem;
+            color: $olive;
+            font-size: 1rem;
+            pointer-events: none;
+        }
+
+        input { padding-right: 1.5rem !important; }
+    }
+
+    textarea {
+        min-height: 188px;
+        resize: vertical;
+    }
+
+    // Hidden GF helpers we don't need.
+    .gform-info,
+    .gfield_description,
+    .gform_required_legend { display: none; }
+
+    .gform_footer {
+        margin: 2rem 0 0;
+        padding: 0;
+    }
+
+    // Submit — rust button (matches .btn).
+    input[type="submit"],
+    .gform_button {
+        @include button;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 32px !important;
+        font-weight: 700 !important;
+        border: none !important;
+        border-radius: $radius-s !important;
+        background: $accent !important;
+        color: $cream !important;
+        cursor: pointer;
+        @include transition;
+
+        &:hover { @include buttonHover; }
+    }
+
+    .gform_validation_errors,
+    .validation_message { color: $accent; }
+}

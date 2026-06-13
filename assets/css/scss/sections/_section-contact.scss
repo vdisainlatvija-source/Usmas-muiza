@@ -1,0 +1,71 @@
+@use '../mixins' as *;
+
+// Contact + Form — contact details (left) + a Gravity Form (right).
+.section-contact {
+    background: $pampas;
+
+    .contact-inner {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: clamp(3rem, 0.5rem + 9vw, 11.25rem); // up to 180px (Figma)
+
+        @include tablet {
+            flex-direction: column;
+            gap: 3rem;
+        }
+    }
+
+    // ---------- Left: contact info ----------
+    .contact-info {
+        flex: 0 0 auto;
+        max-width: 320px;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem; // ~42px between blocks
+    }
+
+    .contact-block {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .contact-title {
+        @include h2;
+        margin: 0;
+    }
+
+    .contact-subtitle {
+        @include body;
+        font-size: 1.5rem; // 24px
+        font-weight: 600;
+        line-height: 1.2;
+        color: $green-muted;
+        margin: 0 0 0.5rem;
+    }
+
+    .contact-details {
+        @include bodyRegular;
+
+        p { margin: 0; } // keep contact lines tight
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            @include transition;
+            &:hover { color: $rust; }
+        }
+    }
+
+    // ---------- Right: form ----------
+    .contact-form {
+        flex: 1 1 auto;
+        width: 100%;
+        max-width: 435px;
+
+        @include tablet { max-width: 100%; }
+    }
+
+    // Gravity Forms styling is shared via the .gf-styled class (_form-styled.scss).
+}

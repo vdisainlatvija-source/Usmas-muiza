@@ -1,0 +1,61 @@
+@use '../mixins' as *;
+
+// Under-hero content section. Built from a "blocks" repeater (heading / text /
+// button) so each piece can be added, removed and reordered. Pampas background,
+// centred column; section-level alignment + per-block Full / Narrow width.
+.section-under-hero {
+    background: $pampas;
+    color: $ink;
+
+    .under-hero__inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: clamp(2rem, 1rem + 2vw, 3rem); // 32 → 48px
+    }
+
+    // Section alignment (buttons stay centred via align-items on the column).
+    &.under-hero--center .under-hero__inner { text-align: center; }
+    &.under-hero--left   .under-hero__inner { text-align: left; }
+
+    .under-hero__heading {
+        @include h2;
+        margin: 0;          // spacing handled by the column gap
+        width: 100%;
+    }
+
+    .under-hero__text {
+        width: 100%;
+
+        ul {
+            margin: 0;
+            padding-left: 1.5rem;
+            list-style: disc;
+        }
+        li { margin: 0; }
+    }
+
+    // Opening-hours schedule.
+    .under-hero__schedule {
+        width: 100%;
+        margin: -1.5rem 0 -1rem;
+
+        p { margin: 0; }
+
+        .schedule__subheading {
+            font-weight: 700;
+            color: $green;
+            margin-top: 1rem;
+
+            &:first-child { margin-top: 0; }
+        }
+    }
+
+    // Narrow blocks (e.g. opening hours) — constrained and centred regardless
+    // of section alignment.
+    .under-hero__item--narrow {
+        width: 100%;
+        max-width: 700px;
+        text-align: center;
+    }
+}

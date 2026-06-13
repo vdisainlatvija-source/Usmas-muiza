@@ -1,0 +1,2430 @@
+{
+    "key": "group_page_sections",
+    "title": "Page - Sections",
+    "fields": [
+        {
+            "key": "field_page_sections",
+            "label": "Sections",
+            "name": "sections",
+            "aria-label": "",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 2,
+            "layouts": {
+                "layout_page_hero": {
+                    "key": "layout_page_hero",
+                    "name": "hero",
+                    "label": "Hero",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_hero_anchor",
+                            "label": "Anchor",
+                            "name": "anchor",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "acf-anchor-compact",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "layout": "block",
+                            "min": 0,
+                            "max": 1,
+                            "collapsed": "",
+                            "button_label": "+ Anchor ID",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_page_hero_anchorid",
+                                    "label": "Anchor ID",
+                                    "name": "id",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "e.g. numuri — the Anchor Nav link target.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "parent_repeater": "field_page_hero_anchor",
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "numuri",
+                                    "prepend": "#",
+                                    "append": ""
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_page_hero_image",
+                            "label": "Background Image",
+                            "name": "image",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "Full-width hero background image (no overlay or text).",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "return_format": "array",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "jpg,jpeg,png,webp",
+                            "preview_size": "medium"
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_page_anchor_nav": {
+                    "key": "layout_page_anchor_nav",
+                    "name": "anchor_nav",
+                    "label": "Anchor Nav",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_anchornav_anchor",
+                            "label": "Anchor",
+                            "name": "anchor",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "acf-anchor-compact",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "layout": "block",
+                            "min": 0,
+                            "max": 1,
+                            "collapsed": "",
+                            "button_label": "+ Anchor ID",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_page_anchornav_anchorid",
+                                    "label": "Anchor ID",
+                                    "name": "id",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "e.g. numuri — the Anchor Nav link target.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "parent_repeater": "field_page_anchornav_anchor",
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "numuri",
+                                    "prepend": "#",
+                                    "append": ""
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_page_anchor_links",
+                            "label": "Links",
+                            "name": "links",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "Anchor links that scroll to a section on this page.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 2,
+                            "layout": "table",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "field_page_anchor_link_label",
+                            "button_label": "Add Link",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_page_anchor_link_label",
+                                    "label": "Label",
+                                    "name": "label",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 2,
+                                    "parent_repeater": "field_page_anchor_links",
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_page_anchor_link_anchor",
+                                    "label": "Target section ID",
+                                    "name": "anchor",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "The id of the section to scroll to (without #), e.g. numuri",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "parent_repeater": "field_page_anchor_links",
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "numuri",
+                                    "prepend": "#",
+                                    "append": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_page_under_hero": {
+                    "key": "layout_page_under_hero",
+                    "name": "under_hero",
+                    "label": "Under Hero",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_uh_anchor",
+                            "label": "Anchor",
+                            "name": "anchor",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "acf-anchor-compact",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "layout": "block",
+                            "min": 0,
+                            "max": 1,
+                            "collapsed": "",
+                            "button_label": "+ Anchor ID",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_page_uh_anchorid",
+                                    "label": "Anchor ID",
+                                    "name": "id",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "e.g. numuri — the Anchor Nav link target.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "parent_repeater": "field_page_uh_anchor",
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "numuri",
+                                    "prepend": "#",
+                                    "append": ""
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_page_uh_align",
+                            "label": "Alignment",
+                            "name": "align",
+                            "aria-label": "",
+                            "type": "button_group",
+                            "instructions": "Text alignment for the whole section (buttons are always centred).",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "choices": {
+                                "center": "Centered",
+                                "left": "Left"
+                            },
+                            "default_value": "center",
+                            "return_format": "value",
+                            "allow_null": 0,
+                            "layout": "horizontal"
+                        },
+                        {
+                            "key": "field_page_uh_blocks",
+                            "label": "Blocks",
+                            "name": "blocks",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "Add / remove / reorder blocks. Each block is a Heading, Text or Button.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 2,
+                            "layout": "block",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "field_page_uh_block_type",
+                            "button_label": "Add Block",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_page_uh_block_type",
+                                    "label": "Type",
+                                    "name": "type",
+                                    "aria-label": "",
+                                    "type": "button_group",
+                                    "instructions": "",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "parent_repeater": "field_page_uh_blocks",
+                                    "choices": {
+                                        "heading": "Heading",
+                                        "text": "Text",
+                                        "schedule": "Schedule",
+                                        "button": "Button"
+                                    },
+                                    "default_value": "text",
+                                    "return_format": "value",
+                                    "allow_null": 0,
+                                    "layout": "horizontal"
+                                },
+                                {
+                                    "key": "field_page_uh_block_heading",
+                                    "label": "Heading",
+                                    "name": "heading",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_page_uh_block_type",
+                                                "operator": "==",
+                                                "value": "heading"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 2,
+                                    "parent_repeater": "field_page_uh_blocks",
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_page_uh_block_text",
+                                    "label": "Text",
+                                    "name": "text",
+                                    "aria-label": "",
+                                    "type": "wysiwyg",
+                                    "instructions": "Supports lists and bold.",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_page_uh_block_type",
+                                                "operator": "==",
+                                                "value": "text"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 2,
+                                    "parent_repeater": "field_page_uh_blocks",
+                                    "default_value": "",
+                                    "tabs": "all",
+                                    "toolbar": "basic",
+                                    "media_upload": 0,
+                                    "delay": 0
+                                },
+                                {
+                                    "key": "field_page_uh_block_width",
+                                    "label": "Width",
+                                    "name": "width",
+                                    "aria-label": "",
+                                    "type": "button_group",
+                                    "instructions": "Narrow = constrained centred column (e.g. opening hours).",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_page_uh_block_type",
+                                                "operator": "==",
+                                                "value": "heading"
+                                            }
+                                        ],
+                                        [
+                                            {
+                                                "field": "field_page_uh_block_type",
+                                                "operator": "==",
+                                                "value": "text"
+                                            }
+                                        ],
+                                        [
+                                            {
+                                                "field": "field_page_uh_block_type",
+                                                "operator": "==",
+                                                "value": "schedule"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "choices": {
+                                        "full": "Full",
+                                        "narrow": "Narrow"
+                                    },
+                                    "default_value": "full",
+                                    "return_format": "value",
+                                    "allow_null": 0,
+                                    "layout": "horizontal"
+                                },
+                                {
+                                    "key": "field_page_uh_hours",
+                                    "label": "Hours",
+                                    "name": "hours",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "One row per opening-hours line.",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_page_uh_block_type",
+                                                "operator": "==",
+                                                "value": "schedule"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 2,
+                                    "parent_repeater": "field_page_uh_blocks",
+                                    "layout": "table",
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "",
+                                    "button_label": "Add Row",
+                                    "rows_per_page": 50,
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_page_uh_hours_sub",
+                                            "label": "Sub-heading",
+                                            "name": "subheading",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "Optional bold line above (e.g. Rīta pelde).",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "25",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": 2,
+                                            "parent_repeater": "field_page_uh_hours",
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "placeholder": "Rīta pelde",
+                                            "prepend": "",
+                                            "append": ""
+                                        },
+                                        {
+                                            "key": "field_page_uh_hours_days",
+                                            "label": "Days",
+                                            "name": "days",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "25",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": 1,
+                                            "parent_repeater": "field_page_uh_hours",
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "placeholder": "VII - IV",
+                                            "prepend": "",
+                                            "append": ""
+                                        },
+                                        {
+                                            "key": "field_page_uh_hours_time",
+                                            "label": "Time",
+                                            "name": "time",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "25",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": 1,
+                                            "parent_repeater": "field_page_uh_hours",
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "placeholder": "12:00 - 21:00",
+                                            "prepend": "",
+                                            "append": ""
+                                        },
+                                        {
+                                            "key": "field_page_uh_hours_note",
+                                            "label": "Note",
+                                            "name": "note",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "25",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": 2,
+                                            "parent_repeater": "field_page_uh_hours",
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "placeholder": "(bārs 21:30)",
+                                            "prepend": "",
+                                            "append": ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    "key": "field_page_uh_block_button",
+                                    "label": "Button",
+                                    "name": "button",
+                                    "aria-label": "",
+                                    "type": "link",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_page_uh_block_type",
+                                                "operator": "==",
+                                                "value": "button"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 2,
+                                    "parent_repeater": "field_page_uh_blocks",
+                                    "return_format": "array"
+                                },
+                                {
+                                    "key": "field_page_uh_block_button_color",
+                                    "label": "Button color",
+                                    "name": "button_color",
+                                    "aria-label": "",
+                                    "type": "button_group",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_page_uh_block_type",
+                                                "operator": "==",
+                                                "value": "button"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "parent_repeater": "field_page_uh_blocks",
+                                    "choices": {
+                                        "rust": "Rust",
+                                        "olive": "Olive"
+                                    },
+                                    "default_value": "rust",
+                                    "return_format": "value",
+                                    "allow_null": 0,
+                                    "layout": "horizontal"
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_page_rooms": {
+                    "key": "layout_page_rooms",
+                    "name": "rooms",
+                    "label": "Rooms",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_rooms_anchor",
+                            "label": "Anchor",
+                            "name": "anchor",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "acf-anchor-compact",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "layout": "block",
+                            "min": 0,
+                            "max": 1,
+                            "collapsed": "",
+                            "button_label": "+ Anchor ID",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_page_rooms_anchorid",
+                                    "label": "Anchor ID",
+                                    "name": "id",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "e.g. numuri — the Anchor Nav link target.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "parent_repeater": "field_page_rooms_anchor",
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "numuri",
+                                    "prepend": "#",
+                                    "append": ""
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_page_rooms_heading",
+                            "label": "Heading",
+                            "name": "heading",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Waterfall heading (e.g. Numuri).",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 2,
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "Numuri",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_page_rooms_select",
+                            "label": "Rooms",
+                            "name": "rooms",
+                            "aria-label": "",
+                            "type": "relationship",
+                            "instructions": "Pick which rooms to show (drag to order). Leave empty to show all published rooms.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "post_type": [
+                                "room"
+                            ],
+                            "taxonomy": "",
+                            "filters": [
+                                "search"
+                            ],
+                            "return_format": "id",
+                            "min": 0,
+                            "max": 0,
+                            "elements": [
+                                "featured_image"
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_page_gallery": {
+                    "key": "layout_page_gallery",
+                    "name": "gallery",
+                    "label": "Gallery",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_gallery_anchor",
+                            "label": "Anchor",
+                            "name": "anchor",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "acf-anchor-compact",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "layout": "block",
+                            "min": 0,
+                            "max": 1,
+                            "collapsed": "",
+                            "button_label": "+ Anchor ID",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_page_gallery_anchorid",
+                                    "label": "Anchor ID",
+                                    "name": "id",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "e.g. galerija — the Anchor Nav link target.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "parent_repeater": "field_page_gallery_anchor",
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "galerija",
+                                    "prepend": "#",
+                                    "append": ""
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_page_gallery_heading",
+                            "label": "Heading",
+                            "name": "heading",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Section heading",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 2,
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_page_gallery_categories",
+                            "label": "Categories",
+                            "name": "categories",
+                            "aria-label": "",
+                            "type": "taxonomy",
+                            "instructions": "Which gallery categories to show as tabs. Each tab shows the 3 newest images from that category.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "taxonomy": "gallery_category",
+                            "add_term": 0,
+                            "save_terms": 0,
+                            "load_terms": 0,
+                            "return_format": "object",
+                            "field_type": "multi_select",
+                            "bidirectional": 0,
+                            "allow_null": 0,
+                            "bidirectional_target": []
+                        },
+                        {
+                            "key": "field_page_gallery_button",
+                            "label": "“See more” Button",
+                            "name": "button",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "Links to the full gallery page.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 2,
+                            "return_format": "array"
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_page_offers": {
+                    "key": "layout_page_offers",
+                    "name": "offers",
+                    "label": "Special Offers",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_offers_anchor",
+                            "label": "Anchor",
+                            "name": "anchor",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "acf-anchor-compact",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "layout": "block",
+                            "min": 0,
+                            "max": 1,
+                            "collapsed": "",
+                            "button_label": "+ Anchor ID",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_page_offers_anchorid",
+                                    "label": "Anchor ID",
+                                    "name": "id",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "e.g. piedavajumi — the Anchor Nav link target.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "parent_repeater": "field_page_offers_anchor",
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "piedavajumi",
+                                    "prepend": "#",
+                                    "append": ""
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_page_offers_heading",
+                            "label": "Heading",
+                            "name": "heading",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Waterfall heading (e.g. Īpašie piedāvājumi).",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 2,
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "Īpašie piedāvājumi",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_page_offers_count",
+                            "label": "Number of cards",
+                            "name": "count",
+                            "aria-label": "",
+                            "type": "number",
+                            "instructions": "How many offers to show (newest first). Leave empty / 0 for all.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "default_value": 6,
+                            "min": 0,
+                            "max": "",
+                            "step": 1,
+                            "placeholder": "6",
+                            "prepend": "",
+                            "append": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_page_content_builder": {
+                    "key": "layout_page_content_builder",
+                    "name": "content_builder",
+                    "label": "Content (builder)",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_cb_anchor",
+                            "label": "Anchor",
+                            "name": "anchor",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "acf-anchor-compact",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "layout": "block",
+                            "min": 0,
+                            "max": 1,
+                            "collapsed": "",
+                            "button_label": "+ Anchor ID",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_page_cb_anchorid",
+                                    "label": "Anchor ID",
+                                    "name": "id",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "parent_repeater": "field_page_cb_anchor",
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "brokastis",
+                                    "prepend": "#",
+                                    "append": ""
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_page_cb_bg",
+                            "label": "Background",
+                            "name": "background",
+                            "aria-label": "",
+                            "type": "button_group",
+                            "instructions": "Section background colour.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "choices": {
+                                "white": "White",
+                                "pampas": "Pampas",
+                                "cream": "Cream",
+                                "green": "Green",
+                                "olive": "Olive"
+                            },
+                            "default_value": "white",
+                            "return_format": "value",
+                            "allow_null": 0,
+                            "layout": "horizontal"
+                        },
+                        {
+                            "key": "field_page_cb_blocks",
+                            "label": "Blocks",
+                            "name": "blocks",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "Add / remove / reorder blocks: Title, Text, Gallery, Table or Button.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 2,
+                            "layout": "block",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "field_page_cb_block_type",
+                            "button_label": "Add Block",
+                            "rows_per_page": 30,
+                            "sub_fields": [
+                                {
+                                    "key": "field_page_cb_block_type",
+                                    "label": "Type",
+                                    "name": "type",
+                                    "aria-label": "",
+                                    "type": "button_group",
+                                    "instructions": "",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "parent_repeater": "field_page_cb_blocks",
+                                    "choices": {
+                                        "title": "Title",
+                                        "text": "Text",
+                                        "gallery": "Gallery",
+                                        "table": "Table",
+                                        "button": "Button"
+                                    },
+                                    "default_value": "text",
+                                    "return_format": "value",
+                                    "allow_null": 0,
+                                    "layout": "horizontal"
+                                },
+                                {
+                                    "key": "field_page_cb_title",
+                                    "label": "Heading",
+                                    "name": "title",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_page_cb_block_type",
+                                                "operator": "==",
+                                                "value": "title"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 2,
+                                    "parent_repeater": "field_page_cb_blocks",
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "Brokastis",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_page_cb_text",
+                                    "label": "Text",
+                                    "name": "text",
+                                    "aria-label": "",
+                                    "type": "wysiwyg",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_page_cb_block_type",
+                                                "operator": "==",
+                                                "value": "text"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 2,
+                                    "parent_repeater": "field_page_cb_blocks",
+                                    "default_value": "",
+                                    "tabs": "all",
+                                    "toolbar": "basic",
+                                    "media_upload": 0,
+                                    "delay": 0
+                                },
+                                {
+                                    "key": "field_page_cb_gallery",
+                                    "label": "Gallery",
+                                    "name": "gallery",
+                                    "aria-label": "",
+                                    "type": "gallery",
+                                    "instructions": "Square images shown in a row.",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_page_cb_block_type",
+                                                "operator": "==",
+                                                "value": "gallery"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "parent_repeater": "field_page_cb_blocks",
+                                    "return_format": "array",
+                                    "library": "all",
+                                    "min": 0,
+                                    "max": 0,
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "jpg,jpeg,png,webp",
+                                    "insert": "append",
+                                    "preview_size": "medium"
+                                },
+                                {
+                                    "key": "field_page_cb_rows",
+                                    "label": "Table rows",
+                                    "name": "rows",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "One row per line. Col 1 left; Col 2/3 right. Fill Expandable content to make the row open on click (+).",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_page_cb_block_type",
+                                                "operator": "==",
+                                                "value": "table"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 2,
+                                    "parent_repeater": "field_page_cb_blocks",
+                                    "layout": "block",
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "field_page_cb_row_c1",
+                                    "button_label": "Add Row",
+                                    "rows_per_page": 50,
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_page_cb_row_c1",
+                                            "label": "Col 1 (left)",
+                                            "name": "col1",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "40",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": 2,
+                                            "parent_repeater": "field_page_cb_rows",
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "placeholder": "Spa zonas apmeklējums",
+                                            "prepend": "",
+                                            "append": ""
+                                        },
+                                        {
+                                            "key": "field_page_cb_row_c2",
+                                            "label": "Col 2",
+                                            "name": "col2",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "30",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": 2,
+                                            "parent_repeater": "field_page_cb_rows",
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "placeholder": "1,5h",
+                                            "prepend": "",
+                                            "append": ""
+                                        },
+                                        {
+                                            "key": "field_page_cb_row_c3",
+                                            "label": "Col 3",
+                                            "name": "col3",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "30",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": 2,
+                                            "parent_repeater": "field_page_cb_rows",
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "placeholder": "15 €",
+                                            "prepend": "",
+                                            "append": ""
+                                        },
+                                        {
+                                            "key": "field_page_cb_row_exptype",
+                                            "label": "Expand type",
+                                            "name": "expand_type",
+                                            "aria-label": "",
+                                            "type": "button_group",
+                                            "instructions": "What the row reveals when opened (only if there's content).",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": 1,
+                                            "choices": {
+                                                "text": "Text",
+                                                "items": "Items (label + price)"
+                                            },
+                                            "default_value": "text",
+                                            "return_format": "value",
+                                            "allow_null": 0,
+                                            "layout": "horizontal",
+                                            "parent_repeater": "field_page_cb_rows"
+                                        },
+                                        {
+                                            "key": "field_page_cb_row_expand",
+                                            "label": "Expandable text",
+                                            "name": "expand",
+                                            "aria-label": "",
+                                            "type": "wysiwyg",
+                                            "instructions": "Free text shown when the row opens.",
+                                            "required": 0,
+                                            "conditional_logic": [
+                                                [
+                                                    {
+                                                        "field": "field_page_cb_row_exptype",
+                                                        "operator": "==",
+                                                        "value": "text"
+                                                    }
+                                                ]
+                                            ],
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": 2,
+                                            "parent_repeater": "field_page_cb_rows",
+                                            "default_value": "",
+                                            "tabs": "all",
+                                            "toolbar": "basic",
+                                            "media_upload": 0,
+                                            "delay": 0
+                                        },
+                                        {
+                                            "key": "field_page_cb_row_items",
+                                            "label": "Items",
+                                            "name": "expand_items",
+                                            "aria-label": "",
+                                            "type": "repeater",
+                                            "instructions": "Menu-style list: label on the left, price on the right.",
+                                            "required": 0,
+                                            "conditional_logic": [
+                                                [
+                                                    {
+                                                        "field": "field_page_cb_row_exptype",
+                                                        "operator": "==",
+                                                        "value": "items"
+                                                    }
+                                                ]
+                                            ],
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": 2,
+                                            "parent_repeater": "field_page_cb_rows",
+                                            "layout": "table",
+                                            "min": 0,
+                                            "max": 0,
+                                            "collapsed": "",
+                                            "button_label": "Add Item",
+                                            "rows_per_page": 50,
+                                            "sub_fields": [
+                                                {
+                                                    "key": "field_page_cb_item_label",
+                                                    "label": "Label",
+                                                    "name": "label",
+                                                    "aria-label": "",
+                                                    "type": "text",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "70",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "wpml_cf_preferences": 2,
+                                                    "parent_repeater": "field_page_cb_row_items",
+                                                    "default_value": "",
+                                                    "maxlength": "",
+                                                    "placeholder": "Makaroni ar sieru",
+                                                    "prepend": "",
+                                                    "append": ""
+                                                },
+                                                {
+                                                    "key": "field_page_cb_item_price",
+                                                    "label": "Price",
+                                                    "name": "price",
+                                                    "aria-label": "",
+                                                    "type": "text",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "30",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "wpml_cf_preferences": 2,
+                                                    "parent_repeater": "field_page_cb_row_items",
+                                                    "default_value": "",
+                                                    "maxlength": "",
+                                                    "placeholder": "5.45 €",
+                                                    "prepend": "",
+                                                    "append": ""
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "key": "field_page_cb_button",
+                                    "label": "Button",
+                                    "name": "button",
+                                    "aria-label": "",
+                                    "type": "link",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_page_cb_block_type",
+                                                "operator": "==",
+                                                "value": "button"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 2,
+                                    "parent_repeater": "field_page_cb_blocks",
+                                    "return_format": "array"
+                                },
+                                {
+                                    "key": "field_page_cb_button_color",
+                                    "label": "Button color",
+                                    "name": "button_color",
+                                    "aria-label": "",
+                                    "type": "button_group",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_page_cb_block_type",
+                                                "operator": "==",
+                                                "value": "button"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "parent_repeater": "field_page_cb_blocks",
+                                    "choices": {
+                                        "rust": "Rust",
+                                        "olive": "Olive"
+                                    },
+                                    "default_value": "rust",
+                                    "return_format": "value",
+                                    "allow_null": 0,
+                                    "layout": "horizontal"
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_page_media_text": {
+                    "key": "layout_page_media_text",
+                    "name": "media_text",
+                    "label": "Media + Text",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_mt_anchor",
+                            "label": "Anchor",
+                            "name": "anchor",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "acf-anchor-compact",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "layout": "block",
+                            "min": 0,
+                            "max": 1,
+                            "collapsed": "",
+                            "button_label": "+ Anchor ID",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_page_mt_anchorid",
+                                    "label": "Anchor ID",
+                                    "name": "id",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "parent_repeater": "field_page_mt_anchor",
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "#",
+                                    "append": ""
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_page_mt_bg",
+                            "label": "Background",
+                            "name": "background",
+                            "aria-label": "",
+                            "type": "button_group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "choices": {
+                                "white": "White",
+                                "pampas": "Pampas",
+                                "cream": "Cream"
+                            },
+                            "default_value": "white",
+                            "return_format": "value",
+                            "allow_null": 0,
+                            "layout": "horizontal"
+                        },
+                        {
+                            "key": "field_page_mt_side",
+                            "label": "Image side",
+                            "name": "media_side",
+                            "aria-label": "",
+                            "type": "button_group",
+                            "instructions": "Which side the image sits on (alternate between sections).",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "choices": {
+                                "left": "Left",
+                                "right": "Right"
+                            },
+                            "default_value": "right",
+                            "return_format": "value",
+                            "allow_null": 0,
+                            "layout": "horizontal"
+                        },
+                        {
+                            "key": "field_page_mt_image",
+                            "label": "Images",
+                            "name": "images",
+                            "aria-label": "",
+                            "type": "gallery",
+                            "instructions": "One or more images shown as a slider (dots + swipe).",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "return_format": "array",
+                            "library": "all",
+                            "min": 0,
+                            "max": 0,
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "jpg,jpeg,png,webp",
+                            "insert": "append",
+                            "preview_size": "medium"
+                        },
+                        {
+                            "key": "field_page_mt_heading",
+                            "label": "Heading",
+                            "name": "heading",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 2,
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "Restorāna zāles noma",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_page_mt_text",
+                            "label": "Text",
+                            "name": "text",
+                            "aria-label": "",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 2,
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "basic",
+                            "media_upload": 0,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_page_mt_price",
+                            "label": "Price",
+                            "name": "price",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "e.g. Cena sākot no 45 Eur/h*",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 2,
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "Cena sākot no 45 Eur/h*",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_page_mt_note",
+                            "label": "Footnote",
+                            "name": "note",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Small note under the price (optional).",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 2,
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "*norēķini ...",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_page_mt_button",
+                            "label": "Button",
+                            "name": "button",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 2,
+                            "return_format": "array"
+                        },
+                        {
+                            "key": "field_page_mt_button_color",
+                            "label": "Button color",
+                            "name": "button_color",
+                            "aria-label": "",
+                            "type": "button_group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "choices": {
+                                "rust": "Rust",
+                                "olive": "Olive"
+                            },
+                            "default_value": "olive",
+                            "return_format": "value",
+                            "allow_null": 0,
+                            "layout": "horizontal"
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_page_news": {
+                    "key": "layout_page_news",
+                    "name": "news",
+                    "label": "News (Jaunumi)",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_news_anchor",
+                            "label": "Anchor",
+                            "name": "anchor",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "acf-anchor-compact",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "layout": "block",
+                            "min": 0,
+                            "max": 1,
+                            "collapsed": "",
+                            "button_label": "+ Anchor ID",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_page_news_anchorid",
+                                    "label": "Anchor ID",
+                                    "name": "id",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "parent_repeater": "field_page_news_anchor",
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "jaunumi",
+                                    "prepend": "#",
+                                    "append": ""
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_page_news_heading",
+                            "label": "Heading",
+                            "name": "heading",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Waterfall heading (e.g. Jaunumi).",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 2,
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "Jaunumi",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_page_news_count",
+                            "label": "Number of posts",
+                            "name": "count",
+                            "aria-label": "",
+                            "type": "number",
+                            "instructions": "How many news items to show (newest first). Leave empty / 0 for all.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "default_value": 9,
+                            "min": 0,
+                            "max": "",
+                            "step": 1,
+                            "placeholder": "9",
+                            "prepend": "",
+                            "append": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_page_contact": {
+                    "key": "layout_page_contact",
+                    "name": "contact",
+                    "label": "Contact + Form",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_contact_anchor",
+                            "label": "Anchor",
+                            "name": "anchor",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "acf-anchor-compact",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "layout": "block",
+                            "min": 0,
+                            "max": 1,
+                            "collapsed": "",
+                            "button_label": "+ Anchor ID",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_page_contact_anchorid",
+                                    "label": "Anchor ID",
+                                    "name": "id",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "parent_repeater": "field_page_contact_anchor",
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "kontakti",
+                                    "prepend": "#",
+                                    "append": ""
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_page_contact_heading",
+                            "label": "Heading",
+                            "name": "heading",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Waterfall heading (e.g. Sazinies).",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 2,
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "Sazinies",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_page_contact_lead",
+                            "label": "Contact details",
+                            "name": "lead_details",
+                            "aria-label": "",
+                            "type": "wysiwyg",
+                            "instructions": "Phone / email under the heading (one per line).",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 2,
+                            "default_value": "",
+                            "placeholder": "67889633\ninfo@usmasmuiza.lv",
+                            "tabs": "all",
+                            "toolbar": "basic",
+                            "media_upload": 0,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_page_contact_blocks",
+                            "label": "Extra contact blocks",
+                            "name": "blocks",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "Additional contact blocks (e.g. Spa procedūru speciālists).",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 2,
+                            "layout": "block",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "field_page_contact_block_title",
+                            "button_label": "Add Block",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_page_contact_block_title",
+                                    "label": "Title",
+                                    "name": "title",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 2,
+                                    "parent_repeater": "field_page_contact_blocks",
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "Spa procedūru speciālists",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_page_contact_block_details",
+                                    "label": "Details",
+                                    "name": "details",
+                                    "aria-label": "",
+                                    "type": "wysiwyg",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 2,
+                                    "parent_repeater": "field_page_contact_blocks",
+                                    "default_value": "",
+                                    "placeholder": "26536576\nspa@usmasmuiza.lv",
+                                    "tabs": "all",
+                                    "toolbar": "basic",
+                                    "media_upload": 0,
+                                    "delay": 0
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_page_contact_form",
+                            "label": "Gravity Form ID",
+                            "name": "form_id",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "The Gravity Forms form ID to show on the right.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "2",
+                            "prepend": "",
+                            "append": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_page_map": {
+                    "key": "layout_page_map",
+                    "name": "map",
+                    "label": "Map",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_map_anchor",
+                            "label": "Anchor",
+                            "name": "anchor",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "acf-anchor-compact",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "layout": "block",
+                            "min": 0,
+                            "max": 1,
+                            "collapsed": "",
+                            "button_label": "+ Anchor ID",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_page_map_anchorid",
+                                    "label": "Anchor ID",
+                                    "name": "id",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "parent_repeater": "field_page_map_anchor",
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "karte",
+                                    "prepend": "#",
+                                    "append": ""
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_page_map_heading",
+                            "label": "Heading",
+                            "name": "heading",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Waterfall heading (e.g. Kā pie mums nokļūt?).",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 2,
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "Kā pie mums nokļūt?",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_page_map_embed",
+                            "label": "Map embed code",
+                            "name": "embed",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "Paste the Google Maps <iframe> embed code (Google Maps → Share → Embed a map → Copy HTML).",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "<iframe src=\"https://www.google.com/maps/embed?...\"></iframe>",
+                            "new_lines": "",
+                            "rows": 4
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_page_text_form": {
+                    "key": "layout_page_text_form",
+                    "name": "text_form",
+                    "label": "Text + Form",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_tf_anchor",
+                            "label": "Anchor",
+                            "name": "anchor",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "acf-anchor-compact",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "layout": "block",
+                            "min": 0,
+                            "max": 1,
+                            "collapsed": "",
+                            "button_label": "+ Anchor ID",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_page_tf_anchorid",
+                                    "label": "Anchor ID",
+                                    "name": "id",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "parent_repeater": "field_page_tf_anchor",
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "davanu-karte",
+                                    "prepend": "#",
+                                    "append": ""
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_page_tf_heading",
+                            "label": "Heading",
+                            "name": "heading",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Waterfall heading (e.g. Dāvanu Karte).",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 2,
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "Dāvanu Karte",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_page_tf_subtitle",
+                            "label": "Subtitle",
+                            "name": "subtitle",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Short line under the heading (green).",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 2,
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "Uzdāvini mirkli, ko paturēt atmiņā.",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_page_tf_text",
+                            "label": "Text",
+                            "name": "text",
+                            "aria-label": "",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 2,
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "basic",
+                            "media_upload": 0,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_page_tf_form",
+                            "label": "Gravity Form ID",
+                            "name": "form_id",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "The Gravity Forms form ID to show on the right.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "3",
+                            "prepend": "",
+                            "append": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_page_reservation": {
+                    "key": "layout_page_reservation",
+                    "name": "reservation",
+                    "label": "Reservation",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_reservation_anchor",
+                            "label": "Anchor",
+                            "name": "anchor",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "acf-anchor-compact",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "layout": "block",
+                            "min": 0,
+                            "max": 1,
+                            "collapsed": "",
+                            "button_label": "+ Anchor ID",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_page_reservation_anchorid",
+                                    "label": "Anchor ID",
+                                    "name": "id",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "parent_repeater": "field_page_reservation_anchor",
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "rezervacija",
+                                    "prepend": "#",
+                                    "append": ""
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_page_reservation_heading",
+                            "label": "Heading",
+                            "name": "heading",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Waterfall heading (e.g. Rezervē).",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 2,
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "Rezervē",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_page_reservation_image",
+                            "label": "Image",
+                            "name": "image",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "Optional image shown above the booking widget.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "return_format": "array",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "jpg,jpeg,png,webp",
+                            "preview_size": "medium"
+                        },
+                        {
+                            "key": "field_page_reservation_shortcode",
+                            "label": "Shortcode",
+                            "name": "shortcode",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "Paste the shortcode to render here (e.g. a booking widget or form shortcode).",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "[your_shortcode]",
+                            "new_lines": "",
+                            "rows": 4
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            },
+            "button_label": "Add Section",
+            "min": "",
+            "max": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "templates/page-sections.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Flexible content layouts for inner content pages (Viesnīca, Restorāns, SPA...).",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1781247637,
+    "local_file": "",
+    "acfml_field_group_mode": "advanced"
+}

@@ -15,6 +15,23 @@ define('ACF_INCLUDE_LEGACY_ICON_CHOICES', true);
 add_post_type_support( 'page', 'excerpt' );
 
 /**
+ * Keep wp-login.php / wp-admin free of WPML's language prefix.
+ *
+ * When browsing the English side, WPML prepends the language code to the login
+ * URL, producing /en/wp-login.php — which does not exist and 404s. This strips
+ * the 2-letter language segment so the login/admin URL stays at the site root.
+ * Query args (redirect_to, action, _wpnonce) are preserved.
+ */
+function usmasmuiza_strip_lang_from_login_url( $url ) {
+	if ( ! is_string( $url ) ) {
+		return $url;
+	}
+	return preg_replace( '#/[a-z]{2}(/wp-(?:login\.php|admin))#', '$1', $url );
+}
+add_filter( 'login_url', 'usmasmuiza_strip_lang_from_login_url', 999 );
+add_filter( 'logout_url', 'usmasmuiza_strip_lang_from_login_url', 999 );
+
+/**
  * Remove default Posts post type from admin
  */
 // Remove "Posts" from admin menu
@@ -213,6 +230,41 @@ function usmasmuiza_gform_submit_button( $button, $form ) {
 	return $custom_button . $info;
 }
 add_filter( 'gform_submit_button', 'usmasmuiza_gform_submit_button', 10, 2 );
+
+/**
+ * Expose each nav link's text as a data-text attribute, so CSS can reserve
+ * the bold-weight width (a hidden bold "ghost") and avoid layout shift when
+ * the link goes bold on hover.
+ */
+function usmasmuiza_nav_link_data_text( $atts, $item, $args, $depth ) {
+	if ( isset( $args->theme_location ) && 'primary-menu' === $args->theme_location ) {
+		$atts['data-text'] = wp_strip_all_tags( $item->title );
+	}
+	return $atts;
+}
+add_filter( 'nav_menu_link_attributes', 'usmasmuiza_nav_link_data_text', 10, 4 );
+
+/**
+ * Compact admin styling for the optional "Anchor" repeater (wrapper class
+ * .acf-anchor-compact). Collapses it to a small "+ Anchor ID" button tucked
+ * into the top-right corner so it doesn't take a full field block.
+ */
+function usmasmuiza_acf_anchor_admin_css() {
+	?>
+	<style>
+		.acf-field.acf-anchor-compact { position: relative; padding: 8px 12px; }
+		.acf-field.acf-anchor-compact > .acf-label { display: inline-block; margin: 0; }
+		.acf-field.acf-anchor-compact > .acf-label label { font-size: 12px; font-weight: 500; color: #787c82; }
+		/* Hide the empty repeater table; show the add button as a small corner pill. */
+		.acf-field.acf-anchor-compact .acf-repeater.-empty > .acf-table { display: none; }
+		.acf-field.acf-anchor-compact .acf-actions { position: absolute; top: 6px; right: 12px; margin: 0; padding: 0; text-align: right; }
+		.acf-field.acf-anchor-compact .acf-actions .acf-button { min-height: 0; height: auto; padding: 2px 10px; font-size: 12px; line-height: 1.7; }
+		/* When a row is added, keep it tidy (no drag handle / order column). */
+		.acf-field.acf-anchor-compact .acf-row-handle.order { display: none; }
+	</style>
+	<?php
+}
+add_action( 'acf/input/admin_head', 'usmasmuiza_acf_anchor_admin_css' );
 
 /**
  * Menu Item Hover SVG Elements

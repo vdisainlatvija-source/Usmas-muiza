@@ -30,8 +30,8 @@ $style  = $has_bg ? ' style="background-image:url(' . esc_url( $background['url'
 
 		<?php if ( $button && ! empty( $button['url'] ) ) : ?>
 			<div class="hero-cta" data-aos="fade-up" data-aos-delay="100">
-				<a class="btn" href="<?php echo esc_url( $button['url'] ); ?>"<?php echo ! empty( $button['target'] ) ? ' target="' . esc_attr( $button['target'] ) . '"' : ''; ?>>
-					<?php echo esc_html( ! empty( $button['title'] ) ? $button['title'] : __( 'Lasīt vairāk', 'usmasmuiza' ) ); ?>
+				<a class="btn" href="<?php echo esc_url( usmasmuiza_localize_url( $button['url'] ) ); ?>"<?php echo ! empty( $button['target'] ) ? ' target="' . esc_attr( $button['target'] ) . '"' : ''; ?>>
+					<?php echo esc_html( ! empty( $button['title'] ) ? $button['title'] : usmasmuiza_ui_string( 'Lasīt vairāk', 'main_hero_button' ) ); ?>
 				</a>
 			</div>
 		<?php endif; ?>

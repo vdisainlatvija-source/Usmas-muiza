@@ -3,10 +3,23 @@
 @use 'ui';
 @use 'header';
 @use 'footer';
+@use 'sections/section-error';
 
 section,
 footer#siteFooter {
     @include Container;
+}
+
+section[id],
+[id].section-anchor {
+    scroll-margin-top: 150px;
+}
+
+// Main content area is white; the body/theme background stays green.
+#pageMain {
+    background: $white;
+
+    h1 { margin: 0; }
 }
 
 .container {
@@ -39,7 +52,7 @@ body {
     background: $bg;
     z-index: 1;
     position: relative;
-    overflow-x: hidden;
+    overflow-x: clip; // clip (not hidden) so position: sticky still works
     @include body;
 
     * {
@@ -64,6 +77,8 @@ body {
 
         &:last-child { margin-bottom: 0; }
     }
+
+    li { font-size: 1rem; }
 }
 
 .otgs-development-site-front-end {

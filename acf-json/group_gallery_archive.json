@@ -1,0 +1,118 @@
+{
+    "key": "group_gallery_archive",
+    "title": "Galerijas arhīvs",
+    "fields": [
+        {
+            "key": "field_ga_tab",
+            "label": "Galerijas arhīvs",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "Iestatījumi galerijas arhīva lapai (/galerija/).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_ga_hero",
+            "label": "Hero bilde",
+            "name": "gallery_archive_hero",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Pilna platuma bilde galerijas arhīva lapas augšā. Ja tukšs — hero netiek rādīts.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 1,
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_ga_categories",
+            "label": "Kategoriju secība",
+            "name": "gallery_archive_categories",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Kuras kategorijas rādīt un kādā secībā. Velc rindas, lai mainītu secību. Ja tukšs — rāda visas kategorijas, kurās ir bildes.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "+ Pievienot kategoriju",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_ga_category",
+                    "label": "Kategorija",
+                    "name": "category",
+                    "aria-label": "",
+                    "type": "taxonomy",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wpml_cf_preferences": 1,
+                    "taxonomy": "gallery_category",
+                    "add_term": 0,
+                    "save_terms": 0,
+                    "load_terms": 0,
+                    "return_format": "object",
+                    "field_type": "select",
+                    "bidirectional": 0,
+                    "allow_null": 0,
+                    "bidirectional_target": [],
+                    "parent_repeater": "field_ga_categories"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "site-settings"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1775740800
+}

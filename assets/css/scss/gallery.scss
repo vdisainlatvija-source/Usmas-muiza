@@ -1,0 +1,7 @@
+@use 'mixins' as *;
+
+// Full gallery archive (/galerija/) — reuses the homepage gallery section
+// styles (tabs, lightbox, grid) plus the inner-page hero. Loaded only on the
+// gallery post-type archive.
+@use 'sections/section-hero';
+@use 'sections/section-gallery';

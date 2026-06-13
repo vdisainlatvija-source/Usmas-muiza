@@ -137,5 +137,41 @@ function vdisain_scripts_styles() {
 			$home_css_time
 		);
 	}
+
+	// Inner content pages (Page – Sections template)
+	if( is_page_template('templates/page-sections.php') ){
+		$page_css_uri = '/assets/css/page.min.css';
+		$page_css_time = filemtime(TEMPLATEPATH . $page_css_uri);
+		wp_enqueue_style(
+			'page-style',
+			$template_uri . $page_css_uri,
+			[],
+			$page_css_time
+		);
+	}
+
+	// Single Special Offer
+	if( is_singular('offer') ){
+		$offer_css_uri = '/assets/css/single-offer.min.css';
+		$offer_css_time = filemtime(TEMPLATEPATH . $offer_css_uri);
+		wp_enqueue_style(
+			'single-offer-style',
+			$template_uri . $offer_css_uri,
+			[],
+			$offer_css_time
+		);
+	}
+
+	// Gallery archive (/galerija/)
+	if( is_post_type_archive('gallery') ){
+		$gallery_css_uri = '/assets/css/gallery.min.css';
+		$gallery_css_time = filemtime(TEMPLATEPATH . $gallery_css_uri);
+		wp_enqueue_style(
+			'gallery-style',
+			$template_uri . $gallery_css_uri,
+			[],
+			$gallery_css_time
+		);
+	}
 }
 add_action( 'wp_enqueue_scripts', 'vdisain_scripts_styles' );

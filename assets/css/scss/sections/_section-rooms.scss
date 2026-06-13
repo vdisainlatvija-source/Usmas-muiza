@@ -1,0 +1,23 @@
+@use '../mixins' as *;
+
+// Rooms ("Numuri") — heading + grid. The card itself is a UI component
+// (.room-card) defined in _ui.scss.
+.section-rooms {
+    text-align: center;
+    background: $white;
+
+    .rooms-title {
+        @include h2;
+        margin: 0 0 2rem;
+    }
+
+    .rooms-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 385px));
+        justify-content: center;
+        gap: 2.5rem;
+
+        @include tablet { grid-template-columns: repeat(2, minmax(0, 385px)); }
+        @include phone  { grid-template-columns: minmax(0, 385px); }
+    }
+}

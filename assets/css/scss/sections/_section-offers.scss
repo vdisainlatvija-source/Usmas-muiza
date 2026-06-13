@@ -1,0 +1,22 @@
+@use '../mixins' as *;
+
+// Special Offers ("Īpašie piedāvājumi") — heading + grid. The card itself is a
+// UI component (.offer-card) defined in _ui.scss.
+.section-offers {
+    background: $pampas;
+    text-align: center;
+
+    .offers-title {
+        @include h2;
+    }
+
+    .offers-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 280px));
+        justify-content: center;
+        gap: 1.5rem; // 24px
+
+        @include tablet { grid-template-columns: repeat(2, minmax(0, 280px)); }
+        @include phone  { grid-template-columns: minmax(0, 280px); }
+    }
+}

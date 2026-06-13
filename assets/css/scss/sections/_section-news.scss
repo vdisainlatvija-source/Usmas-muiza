@@ -1,0 +1,22 @@
+@use '../mixins' as *;
+
+// News / Jaunumi — heading + grid of clickable post cards (image + title).
+.section-news {
+    text-align: center;
+    background: $white;
+
+    .news-title {
+        @include h2;
+        margin: 0 0 2rem;
+    }
+
+    .news-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3.25rem 1.5rem; // 52px row / 24px column (Figma)
+        text-align: left;
+
+        @include tablet { grid-template-columns: repeat(2, 1fr); }
+        @include phone  { grid-template-columns: 1fr; }
+    }
+}

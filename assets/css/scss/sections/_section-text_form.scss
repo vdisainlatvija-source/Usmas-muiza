@@ -1,0 +1,55 @@
+@use '../mixins' as *;
+
+// Text + Form — heading/subtitle/text (left) + a Gravity Form (right).
+// (Gravity Forms styling comes from the shared .gf-styled class.)
+.section-text-form {
+    background: $pampas;
+
+    .tf-inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(3rem, 1rem + 6vw, 7.5rem); // up to ~120px (Figma)
+
+        @include tablet {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 3rem;
+        }
+    }
+
+    .tf-text {
+        flex: 0 1 auto;
+        max-width: 540px;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; // 16px
+    }
+
+    .tf-title {
+        @include h2;
+        margin: 0;
+    }
+
+    .tf-subtitle {
+        @include body;
+        font-size: 1.25rem; // 20px
+        font-weight: 500;
+        line-height: 1.2;
+        color: $green-muted;
+        margin: 0;
+    }
+
+    .tf-body {
+        @include bodyRegular;
+        p { margin: 0 0 1rem; &:last-child { margin-bottom: 0; } }
+    }
+
+    .tf-form {
+        flex: 0 1 auto;
+        width: 100%;
+        max-width: 435px;
+
+        @include tablet { max-width: 100%; }
+    }
+}

@@ -1,0 +1,88 @@
+@use '../mixins' as *;
+
+// Section inline padding (matches @mixin Container) — for the full-bleed slider.
+$testi-pad-x: clamp(1.5rem, -0.08rem + 6.76vw, 6rem);
+
+.section-testimonials {
+    background: $pampas;
+
+    .testimonials-title {
+        @include h2;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    // Full-bleed horizontally scrollable row (scrollbar hidden).
+    .testimonials-track {
+        display: flex;
+        gap: 1.25rem;
+        overflow-x: auto;
+        overflow-y: hidden; // no vertical scroll (overflow-x:auto would force it to auto)
+        -webkit-overflow-scrolling: touch;
+
+        margin-inline: calc(-1 * #{$testi-pad-x});
+        padding-inline: $testi-pad-x;
+        padding-top: 0.5rem; // room so the overflowing quote mark isn't clipped
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        &::-webkit-scrollbar { display: none; }
+
+        // Click-and-drag scrolling
+        cursor: grab;
+
+        &.is-dragging {
+            cursor: grabbing;
+            user-select: none;
+        }
+    }
+
+    .testimonial {
+        position: relative;
+        flex: 0 0 auto;
+        width: 272px; // Figma fixed card width — text wraps inside (no manual line breaks)
+        padding: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin: 0;
+        background: $white;
+        border-radius: $radius-s;
+
+        // Entrance — revealed by JS as each card scrolls into the slider view.
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+
+        &.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    // Decorative quote mark — top-right (Figma: green #3B5541, 100px).
+    .testimonial__quote {
+        position: absolute;
+        top: 30px;
+        right: 0.5rem;
+        transform: translateY(-50%);
+        font-size: 6.25rem; // 100px
+        line-height: 1;
+        color: $green;
+    }
+
+    .testimonial__text {
+        @include bodyRegular;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; // vertical centering within the card
+        margin: 0;
+        text-align: center;
+    }
+
+    .testimonial__author {
+        font-weight: 600;
+        color: $accent;
+        text-align: center;
+    }
+}

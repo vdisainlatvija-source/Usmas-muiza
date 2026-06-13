@@ -12,12 +12,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( is_404() ) {
-	add_filter('body_class', function ($classes) {
-        $classes[] = 'dark-theme';
-        return $classes;
-    });
-}
 get_header();
 
 if ( is_404() ) {

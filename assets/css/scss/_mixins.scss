@@ -10,11 +10,15 @@ $black:       #000000;
 $white:       #FFFFFF;
 
 // Semantic aliases (consumed by mixins / theme)
-$bg:        $white;
+$bg:        $green;
 $dark:      $ink;
 $accent:    $rust;
 $grey-text: $green-muted;
 $light-bg:  $pampas;
+
+// Border radius — global tokens. Edit here to change radius site-wide.
+$radius-s: 8px;
+$radius-l: 16px;
 
 // Breakpoints (px) — desktop-first: styles apply at this width and below.
 $phone:   480px;
@@ -45,6 +49,52 @@ $desktop: 1200px;
     & { transition: all 0.3s ease; }
 }
 
+// Underline that grows from the centre outwards on hover (or .is-active).
+@mixin underlineHover($color: currentColor, $height: 2px, $offset: -4px) {
+    & {
+        position: relative;
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: $offset;
+        height: $height;
+        background: $color;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.3s ease;
+    }
+    &:hover::after,
+    &.is-active::after,
+    &.current-menu-item::after {
+        transform: scaleX(1);
+    }
+}
+
+// Bold text on hover with NO layout shift. Reserves the bold-weight width via
+// a hidden bold copy, so neighbours don't move when the text goes bold.
+// NOTE: the element must carry a `data-text` attribute equal to its visible
+// text (e.g. the nav_menu_link_attributes filter adds it to menu links).
+@mixin boldHover($weight: 700) {
+    & {
+        display: inline-block;
+        text-align: center;
+    }
+    // Hidden bold copy sets the (shrink-to-fit) width; height collapses to 0.
+    &::before {
+        content: attr(data-text);
+        display: block;
+        height: 0;
+        visibility: hidden;
+        overflow: hidden;
+        font-weight: $weight;
+        pointer-events: none;
+    }
+    &:hover { font-weight: $weight; }
+}
+
 // Section container — 4rem block padding, 6rem inline, clamped down on mobile.
 @mixin Container {
     & {
@@ -56,7 +106,7 @@ $desktop: 1200px;
 // Body text — Quicksand
 @mixin bodyRegular {
     & {
-        font-size: clamp(0.875rem, 0.83rem + 0.19vw, 1rem);
+        font-size: 1rem;
         font-weight: 500;
         line-height: 150%;
         color: $dark;
@@ -82,18 +132,18 @@ $desktop: 1200px;
         font-weight: 400;
         line-height: 90%;
         margin: 0 0 2rem;
-        color: $dark;
+        color: $green-muted;
         @include Title;
     }
 }
 
 @mixin h3 {
     & {
-        font-size: clamp(1.5rem, 1.05rem + 1.91vw, 2rem);
-        font-weight: 600;
-        line-height: 120%;
+        font-size: clamp(3rem, 2.3rem + 3vw, 5rem); // 48px → 80px
+        font-weight: 400;
+        line-height: 75%; // 60 / 80 (Figma)
         margin: 0 0 2rem;
-        color: $dark;
+        color: $green-muted;
         @include Title;
     }
 }
@@ -105,7 +155,7 @@ $desktop: 1200px;
         font-weight: 700;
         margin: 0 0 2rem;
         color: $dark;
-        @include Title;
+        @include body;
     }
 }
 
@@ -123,11 +173,11 @@ $desktop: 1200px;
 // Label text (uppercase small)
 @mixin label {
     & {
-        font-size: clamp(0.75rem, 0.66rem + 0.38vw, 1rem);
+        font-size: 0.875rem;
         line-height: 120%;
-        font-weight: 600;
+        font-weight: 400;
         text-transform: uppercase;
-        color: $accent;
+        color: $green;
         @include body;
     }
 }
@@ -137,7 +187,7 @@ $desktop: 1200px;
     & {
         font-size: 0.875rem;
         line-height: 1.5rem;
-        font-weight: 600;
+        font-weight: 500;
         @include body;
     }
 }

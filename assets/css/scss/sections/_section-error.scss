@@ -1,0 +1,68 @@
+@use '../mixins' as *;
+
+// ---------------------------------------------------------------------------
+// 404 / error page
+// White background, fully centred, tight vertical rhythm.
+// Markup: #errorMain > .section-error > .container > h1.error-code
+//         + header (h2 + p) + a.btn
+// ---------------------------------------------------------------------------
+#errorMain {
+    background: $white;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .section-error {
+        width: 100%;
+        min-width: 0; // let the paragraph wrap instead of forcing max-content width
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    // "404" — cursive heading. Tight line-height trims the script font's tall box.
+    .error-code {
+        margin: 0;
+        line-height: 0.8;
+    }
+
+    // Text block sits tight under the 404. The cursive h2 carries a tall line-box,
+    // so a negative top margin pulls it up close to the 404.
+    header {
+        margin-top: -0.5rem;
+
+        h2 {
+            margin: 0;
+            line-height: 0.8;
+        }
+
+        p {
+            margin: 0.25rem 0 0;
+        }
+    }
+
+    // Small gap between the text and the button.
+    .btn {
+        margin-top: 1.25rem;
+    }
+
+    // The cursive heading is very wide; scale it down so it fits narrow screens.
+    @include tablet {
+        .error-code { font-size: 4.5rem; }
+
+        header {
+            margin-top: -0.25rem;
+            h2 { font-size: 2.75rem; }
+        }
+    }
+
+    @include phone {
+        .error-code { font-size: 3.5rem; }
+        header h2 { font-size: 2.1rem; }
+    }
+}

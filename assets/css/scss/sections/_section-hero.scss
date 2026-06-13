@@ -1,0 +1,20 @@
+@use '../mixins' as *;
+
+// Inner-page hero — full-width background image only (no overlay / text).
+.section-hero {
+    min-height: clamp(360px, 31.25vw, 450px); // 450px @ 1440 — tweak here
+    padding: 0;
+    background-color: $green; // fallback while the image loads
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    // Fade in on load.
+    opacity: 0;
+    animation: hero-fade-in 1s ease 0.1s forwards;
+}
+
+@keyframes hero-fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}

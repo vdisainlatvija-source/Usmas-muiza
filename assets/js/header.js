@@ -5,6 +5,7 @@
     const burgerBtn = header.querySelector('.burger-btn');
     const closeBtn = header.querySelector('.close-btn');
     const mobileSidebar = header.querySelector('.mobile-sidebar');
+    const mobileOverlay = header.querySelector('.mobile-overlay');
     const themeColor = document.getElementById('themeColor');
 
     let ticking = false;
@@ -49,6 +50,7 @@
 
     if (burgerBtn) burgerBtn.addEventListener('click', openMobileMenu);
     if (closeBtn) closeBtn.addEventListener('click', closeMobileMenu);
+    if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobileMenu);
 
     if (mobileSidebar) {
         mobileSidebar.querySelectorAll('a').forEach(function(link) {

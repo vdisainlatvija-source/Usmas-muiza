@@ -1,5 +1,228 @@
 @use 'mixins' as *;
 
 footer#siteFooter {
-    // Footer styles
+    position: relative;
+    background: $green;
+    color: $pampas;
+    overflow: hidden;
+    padding-bottom: 1.5rem !important ;
+
+    a { color: inherit; }
+
+    // ---------- Main row: brand (own row) + even 4-column grid ----------
+    .footer-inner {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        align-items: start;
+        row-gap: clamp(3rem, 1rem + 6vw, 6.875rem); // ~110px @ desktop (Figma)
+        column-gap: clamp(2rem, 1rem + 2vw, 3rem);
+
+        @include tablet { grid-template-columns: repeat(2, 1fr); }
+        @include phone  { grid-template-columns: 1fr; }
+    }
+
+    // Brand spans the full first row; the four columns sit beneath it.
+    .footer-brand {
+        grid-column: 1 / -1;
+        display: inline-flex;
+        justify-self: start;
+
+        img {
+            display: block;
+            width: clamp(14rem, 20vw, 20rem);
+            height: auto;
+        }
+    }
+
+    .footer-col {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .footer-col__title {
+        @include h4;
+        margin: 0;
+        color: $pampas;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        a,
+        span {
+            @include link;
+            color: $white;
+        }
+
+        a {
+            @include transition;
+            &:hover { opacity: 0.7; }
+        }
+
+        // Sub-heading within a column (e.g. "Spa procedūru speciālists").
+        &__subtitle {
+            @include h4;
+            margin: 1.5rem 0 0;
+            color: $pampas;
+        }
+    }
+
+    // ---------- Newsletter ----------
+    .footer-newsletter {
+        gap: 1.5rem
+    }
+
+    // Shared input look — placeholder form + the Gravity Forms email field.
+    .footer-newsletter-form input,
+    .footer-newsletter .gform_wrapper input[type="email"],
+    .footer-newsletter .gform_wrapper input[type="text"] {
+        @include body;
+        width: 100%;
+        height: auto;
+        padding: 0.25rem 2rem;
+        font-size: 0.875rem;
+        border: none;
+        border-radius: $radius-s;
+        background: $pampas;
+        color: $green;
+
+        &::placeholder { color: $green; }
+        &:focus { outline: none; }
+
+        @include phone {
+            max-width: 75% ;
+        }
+    }
+
+    .footer-newsletter-form {
+        display: flex;
+        flex-direction: column;
+
+        .btn { align-self: flex-start; }
+    }
+
+    // Social icons
+    .footer-socials {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .social-icon {
+            display: inline-flex;
+            @include transition;
+
+            &:hover { opacity: 0.7; }
+
+            svg {
+                display: block;
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+        }
+    }
+
+    // Gravity Forms output, scoped to the footer.
+    .footer-newsletter .gform_wrapper {
+        margin: 0;
+
+        .gform_fields { gap: 1rem; }
+
+        // The field label acts as the column heading (managed in Gravity Forms).
+        .gfield_label {
+            @include h4;
+            color: $pampas;
+            margin: 0 0 1rem;
+        }
+
+        // Info/description, required asterisk & legend not needed here.
+        .gform-info,
+        .gfield_description,
+        .gfield_required,
+        .gform_required_legend { display: none; }
+
+        .gform_footer {
+            margin: 1rem 0 0;
+            padding: 0;
+        }
+
+        // Outline button (transparent + cream border, fills on hover).
+        input[type="submit"],
+        .gform_button {
+            @include button;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border: 1px solid $pampas;
+            border-radius: $radius-s;
+            background: transparent;
+            color: $pampas;
+            cursor: pointer;
+            @include transition;
+
+            &:hover {
+                background: $pampas;
+                color: $green;
+            }
+        }
+
+        .gform_validation_errors,
+        .validation_message { color: $pampas; }
+    }
+
+    // ---------- Bottom bar ----------
+    .footer-bottom {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-top: 8rem !important;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba($pampas, 0.2);
+        font-size: 0.875rem;
+
+        .footer-copyright {
+            margin: 0; 
+            color: $pampas;
+            }
+
+        .footer-legal {
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(1rem, 0.5rem + 1.5vw, 2.5rem);
+            font-weight: 700;
+
+            a {
+                @include transition;
+                &:hover { opacity: 0.7; }
+            }
+        }
+    }
+
+    @include phone {
+        .footer-inner { gap: 2.5rem; }
+        .footer-brand img { width: 12rem; }
+
+        // Tighten the big desktop bottom gap and stack the bottom bar.
+        .footer-bottom {
+            margin-top: 3rem !important;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1.25rem;
+
+            .footer-legal { flex-direction: column; }
+        }
+
+        // Guard the newsletter / Gravity Forms field from horizontal overflow.
+        .footer-newsletter,
+        .footer-newsletter .gform_wrapper,
+        .footer-newsletter-form { min-width: 0; max-width: 100%; }
+    }
 }
