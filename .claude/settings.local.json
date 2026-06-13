@@ -134,7 +134,9 @@
       "Bash('/Users/renarskondratjevs/Library/Application Support/Local/lightning-services/mysql-8.0.35+4/bin/darwin-arm64/bin/mysql' -u root -proot '--socket=/Users/renarskondratjevs/Library/Application Support/Local/run/nRYQnaXZb/mysql/mysqld.sock' local -e 'SELECT option_name, LENGTH\\(option_value\\) len FROM wp_options WHERE option_name LIKE '\\\\''%transient%gform%'\\\\'' OR option_name LIKE '\\\\''%transient%gf_%'\\\\'' OR option_name LIKE '\\\\''%gform%cache%'\\\\'' OR option_name LIKE '\\\\''%wpml%cache%'\\\\'' OR option_name LIKE '\\\\''%icl%cache%'\\\\'' OR option_name LIKE '\\\\''%_transient_wpml%'\\\\'' ORDER BY option_name LIMIT 40;')",
       "Bash('/Users/renarskondratjevs/Library/Application Support/Local/lightning-services/mysql-8.0.35+4/bin/darwin-arm64/bin/mysql' -u root -proot '--socket=/Users/renarskondratjevs/Library/Application Support/Local/run/nRYQnaXZb/mysql/mysqld.sock' local -e 'SELECT st.string_id, st.language, st.value, s.name, s.context FROM wp_icl_string_translations st JOIN wp_icl_strings s ON s.id=st.string_id WHERE st.value LIKE '\\\\''%room reservation%'\\\\'' OR st.value='\\\\''restaurant'\\\\'';')",
       "Bash(gh auth *)",
-      "Bash(git remote *)"
+      "Bash(git remote *)",
+      "Bash(git push *)",
+      "Bash(git ls-remote *)"
     ]
   }
 }

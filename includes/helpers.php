@@ -9,13 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
 
-// Allow SVG support - restricted to administrators only
-add_filter( 'upload_mimes', function( $mimes ) {
-	if ( current_user_can( 'manage_options' ) ) {
-		$mimes['svg'] = 'image/svg+xml';
-	}
-	return $mimes;
-} );
+// SVG upload is intentionally disabled. Raw SVG can carry scripts (XSS), so it
+// must not be uploadable until a sanitizer (e.g. enshrined/svg-sanitize) is in
+// place. Re-enable only together with sanitization on upload.
 
 /**
  * Translate a theme UI string (e.g. button labels) per language.
@@ -110,12 +106,30 @@ function usmasmuiza_localize_url( $url ) {
 }
 
 /**
- * Get template part with arguments and return the output as a string.
+ * Render a shortcode string only if every shortcode it contains is on the
+ * allow-list. Editors paste this into the "reservation" section, so without a
+ * gate any shortcode (incl. ones that run arbitrary output) could be executed.
+ * Anything containing a non-allowed shortcode — or no shortcode at all — yields
+ * an empty string rather than being run or echoed raw.
+ *
+ * @param string   $content Raw field value.
+ * @param string[] $allowed Allow-listed shortcode tags.
+ * @return string Rendered HTML, or '' if not allowed.
  */
-function get_component($slug, $name = null, $args = []) {
-    ob_start();
-    get_template_part($slug, $name, $args);
-    return ob_get_clean();
+function usmasmuiza_render_allowed_shortcode( $content, $allowed = array( 'sirvoy', 'gravityform' ) ) {
+	if ( ! is_string( $content ) || '' === trim( $content ) ) {
+		return '';
+	}
+	// Collect every shortcode tag present, e.g. "sirvoy" from [sirvoy form-id="x"].
+	if ( ! preg_match_all( '/\[\s*([a-zA-Z0-9_-]+)/', $content, $matches ) ) {
+		return ''; // No shortcode tag → don't echo arbitrary markup.
+	}
+	foreach ( $matches[1] as $tag ) {
+		if ( ! in_array( $tag, $allowed, true ) ) {
+			return ''; // Contains a non-allow-listed shortcode → refuse.
+		}
+	}
+	return do_shortcode( $content );
 }
 
 /**

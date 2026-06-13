@@ -32,6 +32,31 @@ add_filter( 'login_url', 'usmasmuiza_strip_lang_from_login_url', 999 );
 add_filter( 'logout_url', 'usmasmuiza_strip_lang_from_login_url', 999 );
 
 /**
+ * Baseline security response headers (front end).
+ *
+ * Conservative, low-risk hardening that won't break the booking iframe, forms
+ * or analytics. A Content-Security-Policy is intentionally NOT enforced here —
+ * it needs per-site tuning (Sirvoy, Gravity Forms, fonts, analytics) and a
+ * blocking policy would break the page; add it deliberately once sources are
+ * inventoried, ideally first in Report-Only mode.
+ */
+function usmasmuiza_security_headers( $headers ) {
+	if ( is_admin() ) {
+		return $headers;
+	}
+	$headers['X-Content-Type-Options'] = 'nosniff';
+	$headers['X-Frame-Options']        = 'SAMEORIGIN';
+	$headers['Referrer-Policy']        = 'strict-origin-when-cross-origin';
+	$headers['Permissions-Policy']     = 'geolocation=(), camera=(), microphone=(), interest-cohort=()';
+	return $headers;
+}
+add_filter( 'wp_headers', 'usmasmuiza_security_headers' );
+
+// Disable XML-RPC — a common brute-force / pingback amplification surface that
+// this site does not use. Remove this line if a service needs XML-RPC.
+add_filter( 'xmlrpc_enabled', '__return_false' );
+
+/**
  * Remove default Posts post type from admin
  */
 // Remove "Posts" from admin menu

@@ -32,7 +32,7 @@ $id_attr = $anchor ? ' id="' . esc_attr( $anchor ) . '"' : '';
 
 	<?php if ( $shortcode ) : ?>
 		<div class="container reservation-embed" data-aos="fade-up" data-aos-delay="100">
-			<?php echo do_shortcode( $shortcode ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+			<?php echo usmasmuiza_render_allowed_shortcode( $shortcode ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- only allow-listed shortcodes are rendered ?>
 		</div>
 	<?php endif; ?>
 

@@ -8,14 +8,6 @@ if (typeof AOS !== 'undefined') {
     });
 }
 
-// FAQ Accordion
-document.querySelectorAll('.faq-toggle').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-        var item = this.closest('.faq-item');
-        item.classList.toggle('-active');
-    });
-});
-
 // Media + Text — image slider (pagination dots + click-drag, no arrows)
 document.querySelectorAll('.mt-slider').forEach(function(slider) {
     var track = slider.querySelector('.mt-slider__track');
@@ -316,37 +308,6 @@ document.querySelectorAll('.intro-toggle').forEach(function(btn) {
     });
 });
 
-// Counter animation with easeOutCubic
-document.querySelectorAll('.stat-number[data-count]').forEach(function(el) {
-    var target = parseInt(el.dataset.count);
-    var suffix = el.dataset.suffix || '';
-    var counted = false;
-    var duration = 2000; // ms
-
-    function easeOutCubic(t) {
-        return 1 - Math.pow(1 - t, 2);
-    }
-
-    var observer = new IntersectionObserver(function(entries) {
-        if (entries[0].isIntersecting && !counted) {
-            counted = true;
-            var start = performance.now();
-
-            function animate(now) {
-                var progress = Math.min((now - start) / duration, 1);
-                var eased = easeOutCubic(progress);
-                var current = Math.round(eased * target);
-                el.textContent = current + suffix;
-                if (progress < 1) requestAnimationFrame(animate);
-            }
-
-            requestAnimationFrame(animate);
-        }
-    }, { threshold: 0.5 });
-
-    observer.observe(el);
-});
-
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
@@ -372,8 +333,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             document.body.classList.add('safari');
         }
 
-	//console.clear();
-        console.log("%c ".concat("Handcrafted with ❤️️ by vDisain - www.vdisain.lv"," "),"\n padding: 0.5em;\n border-radius: 0.4em;\n color: white;\n background: black;\n font-size: 19px;\n font-weight: bold;\n font-family: Courier;\n line-height: 1.5em;\n");
     });
 }(window.jQuery));
 
